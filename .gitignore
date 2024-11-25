@@ -1,3 +1,5 @@
 # python venv
 .venv
 
+# mac stuff
+.DS_Store
