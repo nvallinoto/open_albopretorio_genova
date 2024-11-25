@@ -61,7 +61,8 @@ data_file.close()
 
 # Convert to HTML
 columns_to_be_removed = ['idUdRettifica','tsPubblicazione','motivoAnnullamento','formaPubblicazione','idDocType','dataAtto','statoPubblicazione','tipo','flgImmediatamenteEsegiubile']
-df = pd.read_csv(csv_file).drop(columns_to_be_removed, axis = 'columns') 
+df = pd.read_csv(csv_file).drop(columns_to_be_removed, axis = 'columns')
+pd.set_option('display.max_colwidth', None)
 # crea una nuova colonna con il link all'atto
 df['urlAtto'] = "https://alboonline.comune.genova.it/albopretorio/#/albo/atto/" + df['idUd'].map(str) + "/" + df['idPubblicazione']
 
