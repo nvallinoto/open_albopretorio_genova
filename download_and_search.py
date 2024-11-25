@@ -32,8 +32,8 @@ file.close()
 if not os.path.isfile(json_file):
     raise Exception("JSON file not found")
 
-with open(json_file) as json_file:
-    data = json.load(json_file) 
+with open(json_file) as json_file_content:
+    data = json.load(json_file_content) 
 albo_data = data['data']
 # rimuove colonna esecutivoDal presente solo in alcune righe
 for index, doc in enumerate(albo_data):
