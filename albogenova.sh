@@ -8,3 +8,5 @@ source .venv/bin/activate
 # run
 python download_and_search.py
 
+# end
+deactivate
