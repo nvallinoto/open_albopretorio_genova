@@ -24,6 +24,10 @@ payload = 'dataInputXml=<?xml version="1.0" encoding="UTF-8" ?><filtriAlboPretor
 req = requests.post(ALBO_URL, data = payload, headers=headers)
 req.raise_for_status() # ensure we notice bad responses
 response = req.text
+if response.status_code != 200:
+    raise Exception(
+        f"Error getting data from {link}. Status code: {response.status_code}"
+    )
 file = open(json_file, "w")
 file.write(response)
 file.close()
