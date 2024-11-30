@@ -10,3 +10,12 @@ Lo script scritto in python esegue le seguenti operazioni
 - Converte il file in formato html, cancella le colonne inutili e aggiunge una colonna con il link all'atto sul sito del Comune di Genova
 
 Per eseguire lo script occorre installare Python e la libreria pandas.
+Da linea di comando: 
+- python download_and_search.py format_output_file parolachiave1 parolachiave2 ... parolachiaveN
+format_output_file = csv,html
+es:
+- python download_and_search.py csv cantiere marassi
+- python download_and_search.py (ritorna tutti gli atti in formato html)
+- python download_and_search.py csv (ritorna tutti gli atti in formato csv)
+
+
