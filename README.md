@@ -13,7 +13,7 @@ Per eseguire lo script occorre installare Python e la libreria pandas.
 Da linea di comando: 
 - python download_and_search.py format_output_file parolachiave1 parolachiave2 ... parolachiaveN
 - format_output_file = csv,html
-es:
+- Esempi:
 - python download_and_search.py csv cantiere marassi (ritorna gli atti che contengono le le parole cantiere e marassi in formato csv)
 - python download_and_search.py (ritorna tutti gli atti in formato html)
 - python download_and_search.py csv (ritorna tutti gli atti in formato csv)
