@@ -15,7 +15,8 @@ Da linea di comando:
 - format_output_file = csv,html
 - Esempi:
 - python download_and_search.py csv cantiere marassi (ritorna gli atti che contengono le parole "cantiere" e "marassi" in formato "csv")
-- python download_and_search.py (ritorna tutti gli atti in formato html)
-- python download_and_search.py csv (ritorna tutti gli atti in formato csv)
+- python download_and_search.py html stazione principe (ritorna gli atti che contengono le parole "stazione" e "principe" in formato "html")
+- python download_and_search.py (ritorna tutti gli atti in pubblicazione nel formato di default = html)
+- python download_and_search.py csv (ritorna tutti gli atti in pubblicazione in formato csv)
 
 
