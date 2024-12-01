@@ -1,10 +1,15 @@
 # albopretorio-genova
 
 Scarica e filtra gli atti dell'albo pretorio del Comune di Genova in base a determinate parole chiave.
-Il sito dell'albo pretorio del Comune di Genova (https://alboonline.comune.genova.it/albopretorio/) non consente la ricerca degli atti nè lo scarico in formato tabellare (es: csv). 
-La ricerca avanzata non funziona (al 17/11/2024) e restituisce "Nessun atto trovato" per qualsiasi parola inserita.
+Il sito dell'albo pretorio del Comune di Genova (https://alboonline.comune.genova.it/albopretorio/) non consente la ricerca degli atti nè lo scarico in formato tabellare (es: csv).  La ricerca avanzata non funziona (da una prova effettuata il 17 novembre 2024) e restituisce "Nessun atto trovato" per qualsiasi parola inserita.
 
-Lo script scritto in python esegue le seguenti operazioni
+Come afferma il progetto AlboPOP.it "Gli Albi Pretori sono una fonte preziosissima di informazioni, che le PA devono pubblicare in una sezione specifica dei loro siti internet. All'interno, ad esempio, si trovano: avvisi pubblici, bandi di concorso, determine dirigenziali, avvisi ed esiti di gare, notifiche, ordinanze del sindaco, pubblicazioni di matrimonio, ecc. Si tratta di elementi molto utili a chi vuole vivere il proprio territorio in modo consapevole e attivo." 
+
+E aggiunge: "Gli Albi pretori online attualmente non forniscono quasi mai strumenti che consentano ai cittadini di essere avvisati in modo automatico per ogni nuova pubblicazione. Inoltre non esiste un formato Standard per le Pubbliche Amministrazioni."
+
+Questo programma vuole aiutare quei cittadini (o gruppi di cittadini) che hanno necessità di trovare atti su un determinato argomento di poterlo fare in modo semplificato. 
+
+Il programma (scritto in python) esegue le seguenti operazioni
 - Scarica gli atti in pubblicazione dell'albo pretorio in formato json
 - Seleziona gli atti che contengono determinate parole chiave nella colonna oggetto
 - Cancella le colonne superflue e ne aggiunge una con il link all'atto sul sito del Comune di Genova
