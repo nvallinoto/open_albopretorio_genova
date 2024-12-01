@@ -8,7 +8,7 @@ Lo script scritto in python esegue le seguenti operazioni
 - Scarica gli atti in pubblicazione dell'albo pretorio in formato json
 - Seleziona gli atti che contengono determinate parole chiave nella colonna oggetto
 - Cancella le colonne superflue e ne aggiunge una con il link all'atto sul sito del Comune di Genova
-- Converte il file con i dati selezionati in formato html/csv (a scelta)
+- Converte il file con i dati selezionati (e le colonne: pubblicazioneNumero,	attoNumero,	dataInizioPubbl,	dataFinePubbl,	oggetto,	dataAdozione,	urlAtto) in formato html/csv (a scelta)
 
 Per eseguire lo script occorre installare Python e la libreria pandas.
 Da linea di comando: 
