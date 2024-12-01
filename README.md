@@ -12,9 +12,11 @@ Lo script scritto in python esegue le seguenti operazioni
 
 Per eseguire lo script occorre installare Python e la libreria pandas.
 
-Da linea di comando: 
+Creare due sottocartelle temp e pub nella cartella dove avete scaricato il progetto.
 
-- python download_and_search.py format_output_file parolachiave1 parolachiave2 ... parolachiaveN (format_output_file = csv,html)
+Da linea di comando digitare: 
+
+- python download_and_search.py format_output_file parola_chiave_1 parola_chiave_2 ... parola_chiave_N (format_output_file = csv,html)
 
 Esempi:
   
