@@ -1,4 +1,4 @@
-# albopretorio-genova
+# Strumento per facilitare la ricerca degli atti in pubblicazione dell'Albo Pretorio del Comune di Genova
 
 Scarica e filtra gli atti dell'albo pretorio del Comune di Genova in base a determinate parole chiave.
 
