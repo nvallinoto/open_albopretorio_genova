@@ -16,9 +16,7 @@ Il programma (scritto in python) esegue le seguenti operazioni
 - Cancella le colonne superflue e ne aggiunge una con il link all'atto sul sito del Comune di Genova
 - Converte il file con i dati selezionati (e le colonne: pubblicazioneNumero,	attoNumero,	dataInizioPubbl,	dataFinePubbl,	oggetto,	dataAdozione,	urlAtto) in formato html/csv (a scelta)
 
-Per eseguire lo script occorre installare Python e la libreria pandas.
-
-Creare due sottocartelle temp e pub nella cartella dove avete scaricato il progetto.
+Per eseguire lo script occorre installare Python e la libreria pandas. E creare due sottocartelle temp (dove vengono memorizzati temporaneamente i dati in formato json e csv) e pub (dove viene salvato il file con il risultate finale) nella cartella dove avete scaricato il progetto.
 
 Da linea di comando digitare: 
 
