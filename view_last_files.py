@@ -2,7 +2,6 @@ import os
 directory = 'pub'
 filenames = []
 for filename in os.listdir(directory):
-    f = os.path.join(directory, filename)
     if filename.endswith(".html") :
         filenames.append(filename)
 filenames.sort(reverse=True)
