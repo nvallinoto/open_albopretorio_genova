@@ -7,7 +7,7 @@ La ricerca avanzata non funziona (al 17/11/2024) e restituisce "Nessun atto trov
 Lo script scritto in python esegue le seguenti operazioni
 - Scarica la pagina con gli atti in pubblicazione dell'albo pretorio in formato json
 - Filtra i dati cercando gli atti che contengono determinate parole chiave e salva il file in formato csv
-- Converte il file in formato html, cancella le colonne inutili e aggiunge una colonna con il link all'atto sul sito del Comune di Genova
+- Converte il file in formato html/csv, cancella le colonne inutili e aggiunge una colonna con il link all'atto sul sito del Comune di Genova
 
 Per eseguire lo script occorre installare Python e la libreria pandas.
 Da linea di comando: 
@@ -15,8 +15,5 @@ Da linea di comando:
 - format_output_file = csv,html
 - Esempi:
 - python download_and_search.py csv cantiere marassi (ritorna gli atti che contengono le parole "cantiere" e "marassi" in formato "csv")
-- python download_and_search.py html stazione principe (ritorna gli atti che contengono le parole "stazione" e "principe" in formato "html")
-- python download_and_search.py (ritorna tutti gli atti in pubblicazione nel formato di default = html)
-- python download_and_search.py csv (ritorna tutti gli atti in pubblicazione in formato csv)
-
+- python download_and_search.py html stazione principe brignole (ritorna gli atti che contengono le parole "stazione", "principe" e "brignole" in formato "html")
 
