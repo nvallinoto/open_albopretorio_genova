@@ -4,9 +4,9 @@ Scarica e filtra gli atti dell'albo pretorio del Comune di Genova in base a dete
 
 Il sito dell'albo pretorio del Comune di Genova (https://alboonline.comune.genova.it/albopretorio/) attualmente non consente la ricerca degli atti per parole chiave nè lo scarico in formato tabellare (es: csv). La ricerca avanzata testuale non funziona (da una prova effettuata il 17 novembre 2024) e restituisce "Nessun atto trovato" per qualsiasi parola inserita.
 
-Come afferma il progetto AlboPOP.it promosso dall'associazione onData: "Gli Albi Pretori sono una fonte preziosissima di informazioni, che le PA devono pubblicare in una sezione specifica dei loro siti internet. All'interno, ad esempio, si trovano: avvisi pubblici, bandi di concorso, determine dirigenziali, avvisi ed esiti di gare, notifiche, ordinanze del sindaco, pubblicazioni di matrimonio, ecc. Si tratta di elementi molto utili a chi vuole vivere il proprio territorio in modo consapevole e attivo." 
+Come affermano i promotori del progetto AlboPOP.it (realizzato dall'associazione onData): "Gli Albi Pretori sono una fonte preziosissima di informazioni, che le PA devono pubblicare in una sezione specifica dei loro siti internet. All'interno, ad esempio, si trovano: avvisi pubblici, bandi di concorso, determine dirigenziali, avvisi ed esiti di gare, notifiche, ordinanze del sindaco, pubblicazioni di matrimonio, ecc. Si tratta di elementi molto utili a chi vuole vivere il proprio territorio in modo consapevole e attivo." 
 
-E aggiunge: "Gli Albi pretori online attualmente non forniscono quasi mai strumenti che consentano ai cittadini di essere avvisati in modo automatico per ogni nuova pubblicazione. Inoltre non esiste un formato Standard per le Pubbliche Amministrazioni."
+E aggiungono: "Gli Albi pretori online attualmente non forniscono quasi mai strumenti che consentano ai cittadini di essere avvisati in modo automatico per ogni nuova pubblicazione. Inoltre non esiste un formato Standard per le Pubbliche Amministrazioni."
 
 Questo programma vuole essere uno strumento di ricerca per aiutare quei cittadini (o gruppi di cittadini) che hanno necessità di trovare atti su un determinato argomento in modo semplificato. 
 
