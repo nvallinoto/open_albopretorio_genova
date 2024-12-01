@@ -2,7 +2,7 @@
 
 Scarica e filtra gli atti in pubblicazione dell'Albo Pretorio del Comune di Genova in base a determinate parole chiave.
 
-Il sito dell'albo pretorio del Comune di Genova (https://alboonline.comune.genova.it/albopretorio/) attualmente non consente la ricerca degli atti per parole chiave nè lo scarico in formato tabellare (es: csv). La ricerca avanzata testuale non funziona (da una prova effettuata il 17 novembre 2024) e restituisce "Nessun atto trovato" per qualsiasi parola inserita.
+Il sito dell'albo pretorio del Comune di Genova (https://alboonline.comune.genova.it/albopretorio/) attualmente non consente la ricerca degli atti per parole chiave nè lo scarico in formato tabellare (per esempio csv). La ricerca avanzata testuale non funziona (ultima prova effettuata il 17 novembre 2024) e restituisce "Nessun atto trovato" per qualsiasi parola inserita.
 
 Come affermano i promotori del progetto AlboPOP.it (realizzato dall'associazione onData): "Gli Albi Pretori sono una fonte preziosissima di informazioni, che le PA devono pubblicare in una sezione specifica dei loro siti internet. All'interno, ad esempio, si trovano: avvisi pubblici, bandi di concorso, determine dirigenziali, avvisi ed esiti di gare, notifiche, ordinanze del sindaco, pubblicazioni di matrimonio, ecc. Si tratta di elementi molto utili a chi vuole vivere il proprio territorio in modo consapevole e attivo." 
 
@@ -16,11 +16,11 @@ Il programma (scritto in python) esegue le seguenti operazioni
 - Cancella le colonne superflue e ne aggiunge una con il link all'atto sul sito del Comune di Genova
 - Converte il file con i dati selezionati (e le colonne: pubblicazioneNumero,	attoNumero,	dataInizioPubbl,	dataFinePubbl,	oggetto,	dataAdozione,	urlAtto) in formato html/csv (a scelta)
 
-Per eseguire lo script occorre installare Python e la libreria pandas. E creare due sottocartelle temp (dove vengono memorizzati temporaneamente i dati in formato json e csv) e pub (dove viene salvato il file con il risultate finale) nella cartella dove avete scaricato il progetto.
+Per eseguire lo script occorre installare Python e la libreria pandas. E creare due sottocartelle temp (dove vengono memorizzati temporaneamente i dati in formato json e csv) e pub (dove viene salvato il file con il risultato finale) nella cartella dove avete scaricato il progetto.
 
 Da linea di comando digitare: 
 
-- python download_and_search.py format_output_file parola_chiave_1 parola_chiave_2 ... parola_chiave_N (format_output_file = csv,html)
+- python download_and_search.py formato_file_output parola_chiave_1 parola_chiave_2 ... parola_chiave_N (formato_file_output = csv,html)
 
 Esempi:
   
@@ -30,4 +30,4 @@ Esempi:
 - python download_and_search.py html (ritorna gli atti in pubblicazione in formato "html")
 - python download_and_search.py csv (ritorna gli atti in pubblicazione in formato "csv")
   
-Se le ricerche sono ricorrenti e prevedono la selezione di atti che hanno sempre le stesse parole chiave, queste ultime possono essere memorizzate nel file download_and_search.py impostando la variabile SEARCH_TERMS. Ciò evita di dover digitare le parole chiave da ricercare sulla linea di comando.
+Se le ricerche sono ricorrenti e prevedono la selezione di atti che hanno sempre le stesse parole chiave, queste ultime possono essere memorizzate nel file download_and_search.py impostando la variabile RECURRENT_SEARCH_TERMS. Ciò evita di dover digitare le parole chiave da ricercare sulla linea di comando.
