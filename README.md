@@ -5,9 +5,10 @@ Il sito dell'albo pretorio del Comune di Genova (https://alboonline.comune.genov
 La ricerca avanzata non funziona (al 17/11/2024) e restituisce "Nessun atto trovato" per qualsiasi parola inserita.
 
 Lo script scritto in python esegue le seguenti operazioni
-- Scarica la pagina con gli atti in pubblicazione dell'albo pretorio in formato json
-- Filtra i dati cercando gli atti che contengono determinate parole chiave e salva il file in formato csv
-- Converte il file in formato html/csv, cancella le colonne inutili e aggiunge una colonna con il link all'atto sul sito del Comune di Genova
+- Scarica gli atti in pubblicazione dell'albo pretorio in formato json
+- Seleziona gli atti che contengono determinate parole chiave nella colonna oggetto
+- Cancella le colonne superflue e ne aggiunge una con il link all'atto sul sito del Comune di Genova
+- Converte il file con i dati selezionati in formato html/csv (a scelta)
 
 Per eseguire lo script occorre installare Python e la libreria pandas.
 Da linea di comando: 
