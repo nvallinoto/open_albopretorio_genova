@@ -16,4 +16,8 @@ Da linea di comando:
 - Esempi:
 - python download_and_search.py csv cantiere marassi (ritorna gli atti che contengono le parole "cantiere" e "marassi" in formato "csv")
 - python download_and_search.py html stazione principe brignole (ritorna gli atti che contengono le parole "stazione", "principe" e "brignole" in formato "html")
-
+- python download_and_search.py (ritorna gli atti in pubblicazione in formato "html" - il formato di default)
+- python download_and_search.py html (ritorna gli atti in pubblicazione in formato "html")
+- python download_and_search.py csv (ritorna gli atti in pubblicazione in formato "csv")
+  
+Se le ricerche sono ricorrenti e prevedono la ricerca di atti che hanno sempre le stesse parole chiave, queste ultime possono essere memorizzate nel file download_and_search.php impostando la variabile SEARCH_TERMS. Ciò evita di dover digitare le parole chiave da ricercare sulla linea di comando.
