@@ -11,28 +11,28 @@ Questo programma vuole essere uno strumento di ricerca per aiutare quei cittadin
 
 Il programma (scritto in python) esegue le seguenti operazioni
 
-    •  Seleziona i dati (numero di pubblicazione e dell'atto, data di inizio e di fine pubblicazione, oggetto e data di adozione) degli atti in pubblicazione che contengono determinate parole e/o sequenze di parole chiave nella colonna oggetto 
+•  Seleziona i dati (numero di pubblicazione e dell'atto, data di inizio e di fine pubblicazione, oggetto e data di adozione) degli atti in pubblicazione che contengono determinate parole e/o sequenze di parole chiave nella colonna oggetto 
     
-    •  Aggiunge una colonna (urlAtto) con il link all'atto sul sito del Comune di Genova
+•  Aggiunge una colonna (urlAtto) con il link all'atto sul sito del Comune di Genova
     
-    •  Salva i dati selezionati in formato html/csv (a scelta)
+•  Salva i dati selezionati in formato html/csv (a scelta)
 
 Per eseguire lo script occorre installare Python e la libreria pandas. E creare due sottocartelle temp (dove vengono memorizzati temporaneamente i dati in formato json e csv) e pub (dove viene salvato il file con il risultato finale) nella cartella dove avete scaricato il progetto.
 
 Da linea di comando digitare:
 
-    •  py download_and_search.py formato_file_output parola_chiave_1 parola_chiave_2 ... parola_chiave_N (formato_file_output = csv,html - per cercare una sequenza esatta di parole aggiungere la sequenza tra parentesi "...")
+•  py download_and_search.py formato_file_output parola_chiave_1 parola_chiave_2 ... parola_chiave_N (formato_file_output = csv,html - per cercare una sequenza esatta di parole aggiungere la sequenza tra parentesi "...")
 
 Esempi:
 
-    •  py download_and_search.py csv cantiere marassi (ritorna gli atti in pubblicazione che contengono le parole "cantiere" e "marassi" in formato "csv")
+•  py download_and_search.py csv cantiere marassi (ritorna gli atti in pubblicazione che contengono le parole "cantiere" e "marassi" in formato "csv")
     
-    •  py download_and_search.py html "stazione principe" lavori (ritorna gli atti in pubblicazione che contengono le parole "stazione principe" e "lavori" in formato "html")
+•  py download_and_search.py html "stazione principe" lavori (ritorna gli atti in pubblicazione che contengono le parole "stazione principe" e "lavori" in formato "html")
     
-    •  py download_and_search.py (ritorna gli atti in pubblicazione in formato "html" - il formato di default)
+•  py download_and_search.py (ritorna gli atti in pubblicazione in formato "html" - il formato di default)
     
-    •  py download_and_search.py html (ritorna gli atti in pubblicazione in formato "html")
+•  py download_and_search.py html (ritorna gli atti in pubblicazione in formato "html")
     
-    •  py download_and_search.py csv (ritorna gli atti in pubblicazione in formato "csv")
+•  py download_and_search.py csv (ritorna gli atti in pubblicazione in formato "csv")
 
 Se le ricerche sono ricorrenti e prevedono la selezione di atti che hanno sempre le stesse parole e/o sequenze di parole chiave, queste ultime possono essere memorizzate nel file download_and_search.py impostando la variabile RECURRENT_SEARCH_TERMS. Ciò evita di dover digitare le parole e/o sequenze di parole chiave da ricercare sulla linea di comando.
