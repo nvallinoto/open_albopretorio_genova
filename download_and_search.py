@@ -15,7 +15,7 @@ RECURRENT_SEARCH_TERMS = []
 # RECURRENT_SEARCH_TERMS = [
 #    'cantiere',
 #    'lavori',
-#    'interventi di manutezione'
+#    'interventi di manutenzione'
 #    ]
 # argv[1] = filetype (csv or html)
 # argv[2:] = parole chiave
