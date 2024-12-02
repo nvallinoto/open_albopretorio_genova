@@ -11,7 +11,7 @@ E aggiungono: "Gli Albi pretori online attualmente non forniscono quasi mai stru
 Questo programma vuole essere uno strumento di ricerca per aiutare quei cittadini (o gruppi di cittadini) che hanno necessità di trovare atti su un determinato argomento in modo semplificato. 
 
 Il programma (scritto in python) esegue le seguenti operazioni
-- Seleziona i metadati (pubblicazioneNumero,	attoNumero,	dataInizioPubbl,	dataFinePubbl,	oggetto,	dataAdozione) degli atti in pubblicazione che contengono determinate parole chiave nella colonna oggetto
+- Seleziona i dati (numero di pubblicazione e dell'atto, data di inizio e di fine pubblicazione, oggetto e data di adozione) degli atti in pubblicazione che contengono determinate parole chiave nella colonna oggetto
 - Aggiunge una colonna (urlAtto) con il link all'atto sul sito del Comune di Genova
 - Salva i dati selezionati in formato html/csv (a scelta)
 
