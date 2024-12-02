@@ -78,9 +78,9 @@ df = pd.read_csv(csv_file).drop(columns_to_be_removed, axis = 'columns')
 pd.set_option('display.max_colwidth', None)
 # crea una nuova colonna con il link all'atto
 df['urlAtto'] = "https://alboonline.comune.genova.it/albopretorio/#/albo/atto/" + df['idUd'].map(str) + "/" + df['idPubblicazione']
-def make_clickable(val, descr):
-    return '<a target="_blank" href="{}">{}</a>'.format(val, descr)
-df.style.format({'urlAtto','Atto': make_clickable})
+def make_clickable(val):
+    return '<a target="_blank" href="{}">ATTO</a>'.format(val)
+df.style.format({'urlAtto': make_clickable})
 columns_to_be_removed_after = ['idUd','idPubblicazione','richiedente']
 df = df.drop(columns_to_be_removed_after, axis = 'columns') 
 if download_typefile == "html":
