@@ -12,7 +12,11 @@ ALBO_URL = "https://alboonline.comune.genova.it/albopretorio/dispatcher/alboPret
 TEMP_DIR = "temp"
 PUB_DIR = "pub"
 RECURRENT_SEARCH_TERMS = []
-# RECURRENT_SEARCH_TERMS = ['cantiere','lavori','ecc']
+# RECURRENT_SEARCH_TERMS = [
+#    'cantiere',
+#    'lavori',
+#    'interventi di manutezione'
+#    ]
 # argv[1] = filetype (csv or html)
 # argv[2:] = parole chiave
 if len(sys.argv) < 2:
