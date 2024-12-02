@@ -13,7 +13,7 @@ Questo programma vuole essere uno strumento di ricerca per aiutare quei cittadin
 Il programma (scritto in python) esegue le seguenti operazioni
 - Seleziona i metadati (pubblicazioneNumero,	attoNumero,	dataInizioPubbl,	dataFinePubbl,	oggetto,	dataAdozione) degli atti in pubblicazione che contengono determinate parole chiave nella colonna oggetto
 - Aggiunge una colonna (urlAtto) con il link all'atto sul sito del Comune di Genova
-- Converte il file con i dati selezionati in formato html/csv (a scelta)
+- Salva i dati selezionati in formato html/csv (a scelta)
 
 Per eseguire lo script occorre installare Python e la libreria pandas. E creare due sottocartelle temp (dove vengono memorizzati temporaneamente i dati in formato json e csv) e pub (dove viene salvato il file con il risultato finale) nella cartella dove avete scaricato il progetto.
 
