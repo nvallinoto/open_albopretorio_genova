@@ -13,28 +13,28 @@ TEMP_DIR = "temp"
 PUB_DIR = "pub"
 RECURRENT_SEARCH_TERMS = []
 # RECURRENT_SEARCH_TERMS = ['cantiere','lavori','ecc']
-# argv[1] = filetype (csv/html)
+# argv[1] = filetype (csv or html)
 # argv[2:] = parole chiave
-if len(sys.argv) < 2: 
+if len(sys.argv) < 2:
     download_typefile = "html"
     SEARCH_TERMS = []
 else:
     download_typefile = sys.argv[1]
-    SEARCH_TERMS = sys.argv[2:]    
+    SEARCH_TERMS = sys.argv[2:]
 if (download_typefile != 'csv' and download_typefile != 'html'):
     print("Indicare il formato del file di output: csv oppure html")
     sys.exit()
 SEARCH_TERMS = SEARCH_TERMS + RECURRENT_SEARCH_TERMS 
-
 today = datetime.today().strftime('%Y%m%d')
 json_file = "{}/albo_{}.json".format(TEMP_DIR, today)
 csv_file = "{}/albo_{}.csv".format(TEMP_DIR, today)
 html_file = "{}/albo_{}.html".format(PUB_DIR, today)
 csv_pub_file = "{}/albo_{}.csv".format(PUB_DIR, today)
-
 # Query API and save response as temporary JSON
 headers = {'Content-Type': 'application/x-www-form-urlencoded'}
-payload = 'dataInputXml=<?xml version="1.0" encoding="UTF-8" ?><filtriAlboPretorio><filtroAlbo><name>TIPO_DOC</name><value /></filtroAlbo><filtroAlbo><name>NASCONDI_ANNULLATE</name><value>VALIDA</value></filtroAlbo><filtroAlbo><name>FULL_TEXT</name><value /></filtroAlbo></filtriAlboPretorio>&nameService=search'
+payload = 'dataInputXml=<?xml version="1.0" encoding="UTF-8" ?><filtriAlboPretorio><filtroAlbo><name>TIPO_DOC</name><value /></filtroAlbo>
+    <filtroAlbo><name>NASCONDI_ANNULLATE</name><value>VALIDA</value></filtroAlbo><filtroAlbo><name>FULL_TEXT</name><value /></filtroAlbo>
+    </filtriAlboPretorio>&nameService=search'
 req = requests.post(ALBO_URL, data = payload, headers=headers)
 req.raise_for_status() # ensure we notice bad responses
 response = req.text
@@ -45,11 +45,9 @@ if req.status_code != 200:
 file = open(json_file, "w")
 file.write(response)
 file.close()
-
-# Convert JSON to CSV
+# Converte il file JSON in formato CSV
 if not os.path.isfile(json_file):
     raise Exception("JSON file not found")
-
 with open(json_file) as json_file_content:
     data = json.load(json_file_content) 
 albo_data = data['data']
@@ -57,8 +55,8 @@ albo_data = data['data']
 for index, doc in enumerate(albo_data):
     if 'esecutivoDal' in doc:
         del doc['esecutivoDal']
-# salva in formato csv
-data_file = open(csv_file, 'w', newline='',encoding='utf-8')
+# Salva in formato csv
+data_file = open(csv_file, 'w', newline='', encoding='utf-8')
 csv_writer = csv.writer(data_file)
 # estrae gli atti con le parole chiave
 count = 0
@@ -68,27 +66,25 @@ for atto in albo_data:
         csv_writer.writerow(header)
     count += 1
     row = atto.values()
-    # replace newlines 
+    # sostituisci le newlines 
     row = [v.replace("\n", " ").strip() for v in atto.values()]    
     # prepare search pattern
     search_pattern = re.compile(r'\b(?:%s)\b' % '|'.join(SEARCH_TERMS), re.I)
-    # check search matches
+    # check search matches in object column
     if re.search(search_pattern, row[7]):
         csv_writer.writerow(row)
 data_file.close()
-
-# Rimuovi colonne inutili e crea colonna con il link all'atto
+# Rimuovi le colonne inutili e crea la colonna con il link all'atto
 columns_to_be_removed = ['idUdRettifica','tsPubblicazione','motivoAnnullamento','formaPubblicazione','idDocType','dataAtto','statoPubblicazione','tipo','flgImmediatamenteEsegiubile']
 df = pd.read_csv(csv_file).drop(columns_to_be_removed, axis = 'columns')
 pd.set_option('display.max_colwidth', None)
 # crea una nuova colonna con il link all'atto
 df['urlAtto'] = "https://alboonline.comune.genova.it/albopretorio/#/albo/atto/" + df['idUd'].map(str) + "/" + df['idPubblicazione']
-def make_clickable(val):
-    return '<a target="_blank" href="{}">ATTO</a>'.format(val)
-df.style.format({'urlAtto': make_clickable})
+def make_clickable(val, descr):
+    return '<a target="_blank" href="{}">{}</a>'.format(val, descr)
+df.style.format({'urlAtto','Atto': make_clickable})
 columns_to_be_removed_after = ['idUd','idPubblicazione','richiedente']
 df = df.drop(columns_to_be_removed_after, axis = 'columns') 
-
 if download_typefile == "html":
     # Convert the DataFrame to an HTML table 
     html_table = df.to_html(border=10, index=False, justify='left', col_space=100, render_links=True, notebook=True)
