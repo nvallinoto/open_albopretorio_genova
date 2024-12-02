@@ -19,12 +19,12 @@ Per eseguire lo script occorre installare Python e la libreria pandas. E creare 
 
 Da linea di comando digitare: 
 
-- python download_and_search.py formato_file_output parola_chiave_1 parola_chiave_2 ... parola_chiave_N (formato_file_output = csv,html)
+- python download_and_search.py formato_file_output parola_chiave_1 parola_chiave_2 ... parola_chiave_N (formato_file_output = csv,html - per cercare una sequenza esatta di parole aggiungere la sequenza tra parentesi "")
 
 Esempi:
   
 - python download_and_search.py csv cantiere marassi (ritorna gli atti in pubblicazione che contengono le parole "cantiere" e "marassi" in formato "csv")
-- python download_and_search.py html stazione principe brignole (ritorna gli atti in pubblicazione che contengono le parole "stazione", "principe" e "brignole" in formato "html")
+- python download_and_search.py html "stazione principe" lavori (ritorna gli atti in pubblicazione che contengono le parole "stazione principe" e "lavori" in formato "html")
 - python download_and_search.py (ritorna gli atti in pubblicazione in formato "html" - il formato di default)
 - python download_and_search.py html (ritorna gli atti in pubblicazione in formato "html")
 - python download_and_search.py csv (ritorna gli atti in pubblicazione in formato "csv")
