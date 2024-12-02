@@ -32,9 +32,7 @@ html_file = "{}/albo_{}.html".format(PUB_DIR, today)
 csv_pub_file = "{}/albo_{}.csv".format(PUB_DIR, today)
 # Query API and save response as temporary JSON
 headers = {'Content-Type': 'application/x-www-form-urlencoded'}
-payload = 'dataInputXml=<?xml version="1.0" encoding="UTF-8" ?><filtriAlboPretorio><filtroAlbo><name>TIPO_DOC</name><value /></filtroAlbo>
-    <filtroAlbo><name>NASCONDI_ANNULLATE</name><value>VALIDA</value></filtroAlbo><filtroAlbo><name>FULL_TEXT</name><value /></filtroAlbo>
-    </filtriAlboPretorio>&nameService=search'
+payload = 'dataInputXml=<?xml version="1.0" encoding="UTF-8" ?><filtriAlboPretorio><filtroAlbo><name>TIPO_DOC</name><value /></filtroAlbo><filtroAlbo><name>NASCONDI_ANNULLATE</name><value>VALIDA</value></filtroAlbo><filtroAlbo><name>FULL_TEXT</name><value /></filtroAlbo></filtriAlboPretorio>&nameService=search'
 req = requests.post(ALBO_URL, data = payload, headers=headers)
 req.raise_for_status() # ensure we notice bad responses
 response = req.text
