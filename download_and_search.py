@@ -19,6 +19,14 @@ RECURRENT_SEARCH_TERMS = []
 #    ]
 # argv[1] = filetype (csv or html)
 # argv[2:] = parole chiave
+if not os.path.exists(PUB_DIR):
+    raise Exception(
+        f"La cartella {PUB_DIR} non esiste."
+    )
+if not os.path.exists(TEMP_DIR):
+    raise Exception(
+        f"La cartella {TEMP_DIR} non esiste."
+    )
 if len(sys.argv) < 2:
     download_typefile = "html"
     SEARCH_TERMS = []
