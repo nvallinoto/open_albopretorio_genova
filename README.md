@@ -11,10 +11,9 @@ E aggiungono: "Gli Albi pretori online attualmente non forniscono quasi mai stru
 Questo programma vuole essere uno strumento di ricerca per aiutare quei cittadini (o gruppi di cittadini) che hanno necessità di trovare atti su un determinato argomento in modo semplificato. 
 
 Il programma (scritto in python) esegue le seguenti operazioni
-- Scarica gli atti in pubblicazione dell'albo pretorio in formato json
-- Seleziona gli atti che contengono determinate parole chiave nella colonna oggetto
-- Cancella le colonne superflue e ne aggiunge una con il link all'atto sul sito del Comune di Genova
-- Converte il file con i dati selezionati (e le colonne: pubblicazioneNumero,	attoNumero,	dataInizioPubbl,	dataFinePubbl,	oggetto,	dataAdozione,	urlAtto) in formato html/csv (a scelta)
+- Seleziona i metadati (pubblicazioneNumero,	attoNumero,	dataInizioPubbl,	dataFinePubbl,	oggetto,	dataAdozione) degli atti in pubblicazione che contengono determinate parole chiave nella colonna oggetto
+- Aggiunge una colonna (urlAtto) con il link all'atto sul sito del Comune di Genova
+- Converte il file con i dati selezionati in formato html/csv (a scelta)
 
 Per eseguire lo script occorre installare Python e la libreria pandas. E creare due sottocartelle temp (dove vengono memorizzati temporaneamente i dati in formato json e csv) e pub (dove viene salvato il file con il risultato finale) nella cartella dove avete scaricato il progetto.
 
