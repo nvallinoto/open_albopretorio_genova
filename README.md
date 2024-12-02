@@ -1,6 +1,6 @@
 # Strumento per facilitare la ricerca degli atti dell'Albo Pretorio del Comune di Genova
 
-Scarica e filtra gli atti in pubblicazione dell'Albo Pretorio del Comune di Genova in base a determinate parole chiave.
+Seleziona gli atti in pubblicazione dell'Albo Pretorio del Comune di Genova in base a determinate parole chiave.
 
 Il sito dell'albo pretorio del Comune di Genova (https://alboonline.comune.genova.it/albopretorio/) attualmente non consente la ricerca degli atti per parole chiave nè lo scarico in formato tabellare (per esempio csv). La ricerca avanzata testuale non funziona (ultima prova effettuata il 17 novembre 2024) e restituisce "Nessun atto trovato" per qualsiasi parola inserita.
 
