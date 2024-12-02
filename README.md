@@ -2,7 +2,7 @@
 
 Seleziona gli atti in pubblicazione dell'Albo Pretorio del Comune di Genova in base a determinate parole chiave.
 
-Il sito dell'albo pretorio del Comune di Genova (https://alboonline.comune.genova.it/albopretorio/) attualmente non consente lo scarico in formato tabellare (per esempio csv/html) e la ricerca con più parole chiave. 
+Il sito dell'albo pretorio del Comune di Genova (https://alboonline.comune.genova.it/albopretorio/) attualmente non consente lo scarico in formato tabellare (per esempio csv/html). 
 
 Come affermano i promotori del progetto AlboPOP.it (realizzato dall'associazione onData): "Gli Albi Pretori sono una fonte preziosissima di informazioni, che le PA devono pubblicare in una sezione specifica dei loro siti internet. All'interno, ad esempio, si trovano: avvisi pubblici, bandi di concorso, determine dirigenziali, avvisi ed esiti di gare, notifiche, ordinanze del sindaco, pubblicazioni di matrimonio, ecc. Si tratta di elementi molto utili a chi vuole vivere il proprio territorio in modo consapevole e attivo." 
 
