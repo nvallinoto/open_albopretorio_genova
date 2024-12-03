@@ -10,9 +10,7 @@ E aggiungono: "Gli Albi pretori online attualmente non forniscono quasi mai stru
 
 Questo programma nasce da una richiesta specifica di aiuto proveniente dal comitato genovese Con i piedi per terra che ha la necessità di monitorare giornalmente gli atti pubblicati dall'Albo pretorio.
 
-Siccome la stessa esigenza può accomunare altri comitati locali, ma anche singoli cittadini, abbiamo voluto generalizzare il programma di ricerca degli atti in pubblicazione.  
-
-Per questo motivo il codice del programma viene ora messo a disposizione di tutti con una licenza di software libero. 
+Siccome la stessa esigenza può accomunare altri comitati locali, ma anche singoli cittadini, abbiamo voluto generalizzare il programma di ricerca degli atti in pubblicazione mettendo a disposizione di tutti gli interessati il relativo codice con una licenza di software libero. 
 
 Il programma vuole essere uno strumento di ricerca per aiutare quei cittadini (o gruppi di cittadini) che hanno necessità di trovare periodicamente atti su un determinato argomento in modo semplificato.
 
