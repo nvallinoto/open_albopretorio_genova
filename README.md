@@ -8,9 +8,17 @@ Come affermano i promotori del progetto AlboPOP.it realizzato dall'associazione 
 
 E aggiungono: "Gli Albi pretori online attualmente non forniscono quasi mai strumenti che consentano ai cittadini di essere avvisati in modo automatico per ogni nuova pubblicazione. Inoltre non esiste un formato Standard per le Pubbliche Amministrazioni."
 
-Questo programma vuole essere uno strumento di ricerca per aiutare quei cittadini (o gruppi di cittadini) che hanno necessità di trovare atti su un determinato argomento in modo semplificato.
+Questo programma nasce da una richiesta specifica di aiuto proveniente dal comitato genovese Con i piedi per terra che ha la necessità di monitorare giornalmente gli atti pubblicati dall'Albo pretorio.
 
-Il programma (scritto in python) esegue le seguenti operazioni
+Siccome la stessa esigenza può accomunare altri comitati locali, ma anche singoli cittadini, abbiamo voluto generalizzare il programma di ricerca degli atti in pubblicazione.  
+
+Per questo motivo il codice del programma viene ora messo a disposizione di tutti con una licenza di software libero. 
+
+Il programma vuole essere uno strumento di ricerca per aiutare quei cittadini (o gruppi di cittadini) che hanno necessità di trovare periodicamente atti su un determinato argomento in modo semplificato.
+
+Inoltre vorrebbe essere uno sprone per l'amministrazione locale affinchè agevoli la ricerca degli atti e li metta a disposizione in un formato aperto con una licenza di open data. 
+
+Il programma (scritto in python) esegue le seguenti operazioni:
 
 •  Seleziona i dati (numero di pubblicazione e dell'atto, data di inizio e di fine pubblicazione, oggetto e data di adozione) degli atti in pubblicazione che contengono determinate parole e/o sequenze di parole chiave nella colonna oggetto 
     
