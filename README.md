@@ -24,7 +24,18 @@ Il programma (scritto in python) esegue le seguenti operazioni:
     
 •  Salva i dati selezionati in formato html/csv (a scelta)
 
-Per eseguire lo script occorre installare Python e la libreria pandas. E creare due sottocartelle temp (dove vengono memorizzati temporaneamente i dati in formato json e csv) e pub (dove viene salvato il file con il risultato finale) nella cartella dove avete scaricato il progetto.
+Per eseguire lo script occorre installare Python e alcune librerie. Meglio in un ambiente virtuale.
+
+```
+# creare ambiente virtuale
+python -m venv .venv
+# attivarlo
+source .venv/bin/activate
+# installare i requisiti
+pip install -r requirements.txt
+```
+
+Clonando questo repository, verranno anche create le sottocaretelle necessarie. Di queste, solo una e' pensata per essere esposta sul web (pub), mentre l'accesso alla sua sottocartella archive dovrebbe essere protetto. 
 
 Da linea di comando digitare:
 
