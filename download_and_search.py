@@ -50,7 +50,7 @@ req.raise_for_status() # ensure we notice bad responses
 response = req.text
 if req.status_code != 200:
     raise Exception(
-        f"Error getting data from {link}. Status code: {response.status_code}"
+        f"Error getting data from {ALBO_URL}. Status code: {response.status_code}"
     )
 file = open(json_file, "w")
 file.write(response)
