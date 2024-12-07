@@ -3,7 +3,6 @@ import json
 import csv
 import re
 import pandas as pd 
-import datetime
 import os
 from datetime import datetime
 import sys
