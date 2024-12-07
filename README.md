@@ -35,7 +35,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-Clonando questo repository, verranno anche create le sottocaretelle necessarie. Di queste, solo una e' pensata per essere esposta sul web (pub), mentre l'accesso alla sua sottocartella archive dovrebbe essere protetto. 
+Clonando questo repository, verranno anche create le sottocartelle necessarie (temp e pub). Di queste, solo una e' pensata per essere esposta sul web (pub), mentre l'accesso alla sua sottocartella archive dovrebbe essere protetto. 
 
 Da linea di comando digitare:
 
