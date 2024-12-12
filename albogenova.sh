@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ARCHIVE_DAYS=15
+ARCHIVE_DAYS=14
 
 cd "$(dirname "$0")"
 
