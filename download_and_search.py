@@ -41,6 +41,7 @@ json_file = "{}/albo_{}.json".format(TEMP_DIR, today)
 csv_file = "{}/albo_{}.csv".format(TEMP_DIR, today)
 html_file = "{}/albo_{}.html".format(PUB_DIR, today)
 csv_pub_file = "{}/albo_{}.csv".format(PUB_DIR, today)
+rss_pub_file = "{}/albogenova_rss.xml".format(PUB_DIR)
 # Query API and save response as temporary JSON
 headers = {'Content-Type': 'application/x-www-form-urlencoded'}
 payload = 'dataInputXml=<?xml version="1.0" encoding="UTF-8" ?><filtriAlboPretorio><filtroAlbo><name>TIPO_DOC</name><value /></filtroAlbo><filtroAlbo><name>NASCONDI_ANNULLATE</name><value>VALIDA</value></filtroAlbo><filtroAlbo><name>FULL_TEXT</name><value /></filtroAlbo></filtriAlboPretorio>&nameService=search'
@@ -67,6 +68,61 @@ for index, doc in enumerate(albo_data):
 # Salva in formato csv
 data_file = open(csv_file, 'w', newline='', encoding='utf-8')
 csv_writer = csv.writer(data_file)
+# genera feed rss
+# generate feed rss 
+def generate_rss(data):
+    rss = """\
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+<title>Albo pretorio Comune di Genova - RSS Feed</title>
+<link>https://ospiti.peacelink.it/albogenova</link>
+<description>Un feed RSS per gli atti dell'Albo pretorio del Comune di Genova!</description>
+"""
+    for i in data:
+        # crea una nuova colonna con il link all'atto
+        urlAtto = "https://alboonline.comune.genova.it/albopretorio/#/albo/atto/" + i['idUd'] + "/" + i['idPubblicazione']
+        rss += """\
+<item>
+    <pubblicazioneNumero>{}</pubblicazioneNumero>
+    <attoNumero>{}</attoNumero>
+    <dataAtto>{}</dataAtto>
+    <dataInizioPubbl>{}</dataInizioPubbl>
+    <dataFinePubbl>{}</dataFinePubbl>
+    <richiedente>{}</richiedente>
+    <oggetto>{}</oggetto>
+    <idDocType>{}</idDocType>
+    <tipo>{}</tipo>
+    <statoPubblicazione>{}</statoPubblicazione>
+    <idUdRettifica>{}</idUdRettifica>
+    <tsPubblicazione>{}</tsPubblicazione>
+    <formaPubblicazione>{}</formaPubblicazione>
+    <motivoAnnullamento>{}</motivoAnnullamento>
+    <dataAdozione>{}</dataAdozione>
+    <urlAtto>{}</urlAtto>
+</item>
+""".format(
+            f"{i['pubblicazioneNumero']}",
+            f"{i['attoNumero']}",
+            f"{i['dataAtto']}",
+            f"{i['dataInizioPubbl']}",
+            f"{i['dataFinePubbl']}",
+            f"{i['richiedente']}",
+            f"{i['oggetto']}",
+            f"{i['idDocType']}",
+            f"{i['tipo']}",
+            f"{i['statoPubblicazione']}",
+            f"{i['idUdRettifica']}",
+            f"{i['tsPubblicazione']}",
+            f"{i['formaPubblicazione']}",
+            f"{i['motivoAnnullamento']}",
+            f"{i['dataAdozione']}",
+            f"{urlAtto}"
+        )
+    rss += "\n</channel>\n</rss>"
+    return rss
+with open(rss_pub_file, 'w') as f_out:
+    print(generate_rss(albo_data), file=f_out)
 # estrae gli atti con le parole chiave
 count = 0
 for atto in albo_data:
