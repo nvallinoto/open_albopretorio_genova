@@ -12,10 +12,9 @@ TEMP_DIR = "temp"
 PUB_DIR = "pub"
 RECURRENT_SEARCH_TERMS = []
 # RECURRENT_SEARCH_TERMS = [
-#    'cantiere',
-#    'lavori',
-#    'interventi di manutenzione'
-#    ]
+# 'stazione marittima', 'funivia', 'forte begato', 'espropri', 'lagaccio', 'gavoglio', 'principe', 'Doppelmayr', 'Collini', 
+# 'B31B21006780001', '9219018E4F', 'MOGE 20792', 'OBR', 'A002D44B88', 'collegamento funiviario', 'interferenze', 'PNC'
+# ]
 # argv[1] = filetype (csv or html)
 # argv[2:] = parole chiave
 if not os.path.exists(PUB_DIR):
