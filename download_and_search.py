@@ -74,9 +74,24 @@ def generate_rss(data):
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-<title>Albo pretorio Comune di Genova - RSS Feed</title>
-<link>https://ospiti.peacelink.it/albogenova</link>
-<description>Un feed RSS per gli atti dell'Albo pretorio del Comune di Genova!</description>
+<title>AlboPOP - Comune - Genova</title>
+<link>https://ospiti.peacelink.it/albogenova/albogenova_rss.xml</link>
+<description>*non ufficiale* RSS feed dell'Albo Pretorio del Comune di Genova</description>
+<language>it</language>
+<pubDate>today</pubDate>
+<webMaster>nicola.vallinoto@gmail.com (Nicola Vallinoto)</webMaster>
+<docs>https://github.com/nvallinoto/albopop_genova_feedrss</docs>
+<copyright>Copyright 2024 Comune di Genova</copyright>
+<xhtml:meta name="robots" content="noindex" />
+    <category domain="http://albopop.it/specs#channel-category-country">Italia</category>
+    <category domain="http://albopop.it/specs#channel-category-region">Liguria</category>
+    <category domain="http://albopop.it/specs#channel-category-province">Genova</category>
+    <category domain="http://albopop.it/specs#channel-category-municipality">Genova</category>
+    <category domain="http://albopop.it/specs#channel-category-latitude">44.414165</category>
+    <category domain="http://albopop.it/specs#channel-category-longitude">8.942184</category>
+    <category domain="http://albopop.it/specs#channel-category-type">Comune</category>
+    <category domain="http://albopop.it/specs#channel-category-name">Comune di Genova</category>
+    <category domain="http://albopop.it/specs#channel-category-uid">istat:010025</category>
 """
     for i in data:
         # crea una nuova colonna con il link all'atto
