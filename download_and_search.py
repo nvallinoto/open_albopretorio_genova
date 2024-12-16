@@ -79,7 +79,7 @@ def generate_rss(data):
 <link>https://ospiti.peacelink.it/albogenova/albogenova_rss.xml</link>
 <description>*non ufficiale* RSS feed dell'Albo Pretorio del Comune di Genova</description>
 <language>it</language>
-<pubDate>today</pubDate>
+<pubDate>{}</pubDate>
 <webMaster>nicola.vallinoto@gmail.com (Nicola Vallinoto)</webMaster>
 <docs>https://github.com/nvallinoto/albopop_genova_feedrss</docs>
 <copyright>Copyright 2024 Comune di Genova</copyright>
@@ -93,7 +93,9 @@ def generate_rss(data):
     <category domain="http://albopop.it/specs#channel-category-type">Comune</category>
     <category domain="http://albopop.it/specs#channel-category-name">Comune di Genova</category>
     <category domain="http://albopop.it/specs#channel-category-uid">istat:010025</category>
-"""
+""".format(
+            f"{today}"
+           )
     for i in data:
         # crea una nuova colonna con il link all'atto
         urlAtto = "https://alboonline.comune.genova.it/albopretorio/#/albo/atto/" + i['idUd'] + "/" + i['idPubblicazione']
