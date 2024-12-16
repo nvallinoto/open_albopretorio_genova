@@ -70,6 +70,7 @@ csv_writer = csv.writer(data_file)
 # genera feed rss
 # generate feed rss 
 def generate_rss(data):
+    today = datetime.today().strftime('%a, %d %b %Y %X %z')
     rss = """\
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
