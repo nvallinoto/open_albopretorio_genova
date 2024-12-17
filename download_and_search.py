@@ -68,14 +68,20 @@ for index, doc in enumerate(albo_data):
 data_file = open(csv_file, 'w', newline='', encoding='utf-8')
 csv_writer = csv.writer(data_file)
 # genera feed rss
-# generate feed rss 
 def generate_rss(data):
-    today = datetime.today().strftime('%a, %d %b %Y %X %z')
+    # Ottieni la data corrente
+    current_date = datetime.now(timezone.utc)
+    # Conversione nel formato RFC-822
+    formatted_date = current_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
     rss = """\
 <?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
+<rss version="2.0"
+ xmlns:atom="http://www.w3.org/2005/Atom"
+ xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule"
+ xmlns:xhtml="http://www.w3.org/1999/xhtml">
 <channel>
 <title>AlboPOP - Comune - Genova</title>
+<atom:link href="https://ospiti.peacelink.it/albogenova/albogenova_rss.xml" rel="self"  type="application/rss+xml" />
 <link>https://ospiti.peacelink.it/albogenova/albogenova_rss.xml</link>
 <description>*non ufficiale* RSS feed dell'Albo Pretorio del Comune di Genova</description>
 <language>it</language>
@@ -83,8 +89,8 @@ def generate_rss(data):
 <webMaster>nicola.vallinoto@gmail.com (Nicola Vallinoto)</webMaster>
 <docs>https://github.com/nvallinoto/albopop_genova_feedrss</docs>
 <copyright>Copyright 2024 Comune di Genova</copyright>
-<xhtml:meta name="robots" content="noindex" />
-    <category domain="http://albopop.it/specs#channel-category-country">Italia</category>
+<xhtml:meta name="robots" content="noindex" />    
+<category domain="http://albopop.it/specs#channel-category-country">Italia</category>
     <category domain="http://albopop.it/specs#channel-category-region">Liguria</category>
     <category domain="http://albopop.it/specs#channel-category-province">Genova</category>
     <category domain="http://albopop.it/specs#channel-category-municipality">Genova</category>
@@ -94,47 +100,68 @@ def generate_rss(data):
     <category domain="http://albopop.it/specs#channel-category-name">Comune di Genova</category>
     <category domain="http://albopop.it/specs#channel-category-uid">istat:010025</category>
 """.format(
-            f"{today}"
+            f"{formatted_date}"
            )
     for i in data:
         # crea una nuova colonna con il link all'atto
         urlAtto = "https://alboonline.comune.genova.it/albopretorio/#/albo/atto/" + i['idUd'] + "/" + i['idPubblicazione']
+        
+        # Parsing di tsPubblicazione
+        original_date = i['tsPubblicazione']
+        parsed_date = datetime.strptime(original_date, "%b %d, %Y %I:%M:%S %p")
+        # Aggiunta del fuso orario UTC
+        utc_date = parsed_date.replace(tzinfo=pytz.utc)
+        # Conversione nel formato RFC-822
+        formatted_tsPubblicazione = utc_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
+        
+        # Parsing di dataAtto
+        original_date = i['dataAtto']
+        parsed_date = datetime.strptime(original_date, "%b %d, %Y %I:%M:%S %p")
+        # Aggiunta del fuso orario UTC
+        utc_date = parsed_date.replace(tzinfo=pytz.utc)
+        # Conversione nel formato RFC-822
+        formatted_dataAtto = utc_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
+        
+        # Parsing di dataAdozione
+        original_date = i['dataAdozione']
+        parsed_date = datetime.strptime(original_date, "%b %d, %Y %I:%M:%S %p")
+        # Aggiunta del fuso orario UTC
+        utc_date = parsed_date.replace(tzinfo=pytz.utc)
+        # Conversione nel formato RFC-822
+        formatted_dataAdozione = utc_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
+
+        clean_oggetto = html.escape(i['oggetto'])
+
         rss += """\
-<item>
-    <pubblicazioneNumero>{}</pubblicazioneNumero>
-    <attoNumero>{}</attoNumero>
-    <dataAtto>{}</dataAtto>
-    <dataInizioPubbl>{}</dataInizioPubbl>
-    <dataFinePubbl>{}</dataFinePubbl>
-    <richiedente>{}</richiedente>
-    <oggetto>{}</oggetto>
-    <idDocType>{}</idDocType>
-    <tipo>{}</tipo>
-    <statoPubblicazione>{}</statoPubblicazione>
-    <idUdRettifica>{}</idUdRettifica>
-    <tsPubblicazione>{}</tsPubblicazione>
-    <formaPubblicazione>{}</formaPubblicazione>
-    <motivoAnnullamento>{}</motivoAnnullamento>
-    <dataAdozione>{}</dataAdozione>
-    <urlAtto>{}</urlAtto>
-</item>
+        <item>
+            <title>{}</title>
+            <link>{}</link>
+            <description>{}</description>
+            <pubDate>{}</pubDate>
+            <guid isPermaLink="true">{}</guid>
+            <category domain="http://albopop.it/specs#item-category-uid">{}</category>
+            <category domain="http://albopop.it/specs#item-category-type">{}</category>
+            <category domain="http://albopop.it/specs#item-category-pubStart">{}</category>
+            <category domain="http://albopop.it/specs#item-category-pubEnd">{}</category>
+            <category domain="http://albopop.it/specs#item-category-relStart">{}</category>
+            <category domain="http://albopop.it/specs#item-category-exeStart">{}</category>
+            <category domain="http://albopop.it/specs#item-category-chapter">{}</category>
+            <category domain="http://albopop.it/specs#item-category-unit">{}</category>
+        </item>
 """.format(
-            f"{i['pubblicazioneNumero']}",
+            f"{clean_oggetto}",
+            f"{urlAtto}",
+            f"{clean_oggetto}",
+            f"{formatted_tsPubblicazione}",
+            f"{urlAtto}",  
             f"{i['attoNumero']}",
-            f"{i['dataAtto']}",
+            f"{i['tipo']}",
             f"{i['dataInizioPubbl']}",
             f"{i['dataFinePubbl']}",
-            f"{i['richiedente']}",
-            f"{i['oggetto']}",
+            f"{formatted_dataAtto}",
+            f"{formatted_dataAdozione}",
             f"{i['idDocType']}",
-            f"{i['tipo']}",
-            f"{i['statoPubblicazione']}",
-            f"{i['idUdRettifica']}",
-            f"{i['tsPubblicazione']}",
-            f"{i['formaPubblicazione']}",
-            f"{i['motivoAnnullamento']}",
-            f"{i['dataAdozione']}",
-            f"{urlAtto}"
+            f"{i['richiedente']}"
         )
     rss += "\n</channel>\n</rss>"
     return rss
