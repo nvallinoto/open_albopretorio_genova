@@ -4,8 +4,11 @@ import csv
 import re
 import pandas as pd 
 import os
-from datetime import datetime
+from datetime import datetime, timezone
+import pytz
 import sys
+import time
+import html
 # config
 ALBO_URL = "https://alboonline.comune.genova.it/albopretorio/dispatcher/alboPretorioServlet/invoke"
 TEMP_DIR = "temp"
