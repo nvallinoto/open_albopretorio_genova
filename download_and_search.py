@@ -9,6 +9,7 @@ import pytz
 import sys
 import time
 import html
+from dateutil import parser
 # config
 ALBO_URL = "https://alboonline.comune.genova.it/albopretorio/dispatcher/alboPretorioServlet/invoke"
 TEMP_DIR = "temp"
@@ -91,7 +92,7 @@ def generate_rss(data):
 <pubDate>{}</pubDate>
 <webMaster>nicola.vallinoto@gmail.com (Nicola Vallinoto)</webMaster>
 <docs>https://github.com/nvallinoto/albopop_genova_feedrss</docs>
-<copyright>Copyright 2024 Comune di Genova</copyright>
+<copyright>Copyright 2025 Comune di Genova</copyright>
 <xhtml:meta name="robots" content="noindex" />    
 <category domain="http://albopop.it/specs#channel-category-country">Italia</category>
     <category domain="http://albopop.it/specs#channel-category-region">Liguria</category>
@@ -108,6 +109,16 @@ def generate_rss(data):
     for i in data:
         # crea una nuova colonna con il link all'atto
         urlAtto = "https://alboonline.comune.genova.it/albopretorio/#/albo/atto/" + i['idUd'] + "/" + i['idPubblicazione']
+
+        #Parsing di dataInizioPubbl
+        original_date = i['dataInizioPubbl']
+        parsed_date = parser.parse(original_date)
+        formatted_dataInizioPubbl = parsed_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
+
+        #Parsing di dataFinePubbl
+        original_date = i['dataFinePubbl']
+        parsed_date = parser.parse(original_date)
+        formatted_dataFinePubbl = parsed_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
         
         # Parsing di tsPubblicazione
         original_date = i['tsPubblicazione']
@@ -159,8 +170,8 @@ def generate_rss(data):
             f"{urlAtto}",  
             f"{i['attoNumero']}",
             f"{i['tipo']}",
-            f"{i['dataInizioPubbl']}",
-            f"{i['dataFinePubbl']}",
+            f"{formatted_dataInizioPubbl}",
+            f"{formatted_dataFinePubbl}",
             f"{formatted_dataAtto}",
             f"{formatted_dataAdozione}",
             f"{i['idDocType']}",
