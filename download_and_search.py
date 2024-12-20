@@ -109,12 +109,13 @@ def generate_rss(data):
     for i in data:
         # crea una nuova colonna con il link all'atto
         urlAtto = "https://alboonline.comune.genova.it/albopretorio/#/albo/atto/" + i['idUd'] + "/" + i['idPubblicazione']
-
+        titolo = "Pubblicazione n. " + i['pubblicazioneNumero'] 
+        
         #Parsing di dataInizioPubbl
         original_date = i['dataInizioPubbl']
         parsed_date = parser.parse(original_date)
         formatted_dataInizioPubbl = parsed_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
-
+        
         #Parsing di dataFinePubbl
         original_date = i['dataFinePubbl']
         parsed_date = parser.parse(original_date)
@@ -163,7 +164,7 @@ def generate_rss(data):
             <category domain="http://albopop.it/specs#item-category-unit">{}</category>
         </item>
 """.format(
-            f"{clean_oggetto}",
+            f"{titolo}",
             f"{urlAtto}",
             f"{clean_oggetto}",
             f"{formatted_tsPubblicazione}",
