@@ -109,7 +109,7 @@ def generate_rss(data):
     for i in data:
         # crea una nuova colonna con il link all'atto
         urlAtto = "https://alboonline.comune.genova.it/albopretorio/#/albo/atto/" + i['idUd'] + "/" + i['idPubblicazione']
-        titolo = "Pubblicazione n. " + i['pubblicazioneNumero'] + " del " + ['dataInizioPubbl']
+        titolo = "Pubblicazione n. " + i['pubblicazioneNumero'] + " del " + i['dataInizioPubbl']
         
         #Parsing di dataInizioPubbl
         original_date = i['dataInizioPubbl']
