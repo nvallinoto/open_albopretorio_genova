@@ -142,13 +142,9 @@ def make_clickable(val):
 
 if __name__ == '__main__':
     if not os.path.exists(PUB_DIR):
-        raise Exception(
-            f"La cartella {PUB_DIR} non esiste."
-        )
+        os.mkdir(PUB_DIR)
     if not os.path.exists(TEMP_DIR):
-        raise Exception(
-            f"La cartella {TEMP_DIR} non esiste."
-        )
+        os.mkdir(TEMP_DIR)
     if len(sys.argv) < 2:
         download_typefile = "html"
         SEARCH_TERMS = []
