@@ -28,9 +28,7 @@ RECURRENT_SEARCH_TERMS = []
 # genera feed rss
 def generate_rss(data):
     # Ottieni la data corrente
-    current_date = datetime.now(timezone.utc)
-    # Conversione nel formato RFC-822
-    formatted_date = current_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
+    current_date = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
     rss = """\
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0"
@@ -58,7 +56,7 @@ def generate_rss(data):
     <category domain="http://albopop.it/specs#channel-category-name">Comune di Genova</category>
     <category domain="http://albopop.it/specs#channel-category-uid">istat:010025</category>
 """.format(
-            f"{formatted_date}"
+            f"{current_date}"
            )
     for i in data:
         # crea una nuova colonna con il link all'atto
@@ -66,37 +64,21 @@ def generate_rss(data):
         titolo = "Pubblicazione n. " + i['pubblicazioneNumero'] + " del " + i['dataInizioPubbl'] + " - " + i['attoNumero'] 
         
         #Parsing di dataInizioPubbl
-        original_date = i['dataInizioPubbl']
-        parsed_date = parser.parse(original_date)
-        formatted_dataInizioPubbl = parsed_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
+        formatted_dataInizioPubbl = parser.parse(i['dataInizioPubbl']).strftime("%a, %d %b %Y %H:%M:%S +0000")
         
         #Parsing di dataFinePubbl
-        original_date = i['dataFinePubbl']
-        parsed_date = parser.parse(original_date)
-        formatted_dataFinePubbl = parsed_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
+        formatted_dataFinePubbl = parser.parse(i['dataFinePubbl']).strftime("%a, %d %b %Y %H:%M:%S +0000")
         
         # Parsing di tsPubblicazione
-        original_date = i['tsPubblicazione']
-        parsed_date = datetime.strptime(original_date, "%b %d, %Y %I:%M:%S %p")
-        # Aggiunta del fuso orario UTC
-        utc_date = parsed_date.replace(tzinfo=pytz.utc)
-        # Conversione nel formato RFC-822
+        utc_date = datetime.strptime(i['tsPubblicazione'], "%b %d, %Y %I:%M:%S %p").replace(tzinfo=pytz.utc)
         formatted_tsPubblicazione = utc_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
         
         # Parsing di dataAtto
-        original_date = i['dataAtto']
-        parsed_date = datetime.strptime(original_date, "%b %d, %Y %I:%M:%S %p")
-        # Aggiunta del fuso orario UTC
-        utc_date = parsed_date.replace(tzinfo=pytz.utc)
-        # Conversione nel formato RFC-822
+        utc_date = datetime.strptime(i['dataAtto'], "%b %d, %Y %I:%M:%S %p").replace(tzinfo=pytz.utc)
         formatted_dataAtto = utc_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
         
         # Parsing di dataAdozione
-        original_date = i['dataAdozione']
-        parsed_date = datetime.strptime(original_date, "%b %d, %Y %I:%M:%S %p")
-        # Aggiunta del fuso orario UTC
-        utc_date = parsed_date.replace(tzinfo=pytz.utc)
-        # Conversione nel formato RFC-822
+        utc_date = datetime.strptime(i['dataAdozione'], "%b %d, %Y %I:%M:%S %p").replace(tzinfo=pytz.utc)
         formatted_dataAdozione = utc_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
 
         clean_oggetto = html.escape(i['oggetto'])
