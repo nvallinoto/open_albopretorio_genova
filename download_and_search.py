@@ -26,6 +26,17 @@ RECURRENT_SEARCH_TERMS = []
 
 
 # genera feed rss
+def convert_to_rfc822(data_input):
+    parsed_date = datetime.strptime(data_input, "%b %d, %Y %I:%M:%S %p")
+    # Aggiunta del fuso orario UTC
+    utc_date = parsed_date.replace(tzinfo=pytz.utc)
+    # Conversione nel formato RFC-822
+    formatted_tsPubblicazione = utc_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
+    return formatted_tsPubblicazione
+def convert_to_rfc822_from_ddmmyyyy(data_input):
+    parsed_date = parser.parse(data_input)
+    formatted_dataInizioPubbl = parsed_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
+    return formatted_dataInizioPubbl
 def generate_rss(data):
     # Ottieni la data corrente
     current_date = datetime.now(timezone.utc).strftime("%a, %d %b %Y %H:%M:%S +0000")
@@ -61,28 +72,19 @@ def generate_rss(data):
     for i in data:
         # crea una nuova colonna con il link all'atto
         urlAtto = "https://alboonline.comune.genova.it/albopretorio/#/albo/atto/" + i['idUd'] + "/" + i['idPubblicazione']
-        titolo = "Pubblicazione n. " + i['pubblicazioneNumero'] + " del " + i['dataInizioPubbl'] + " - " + i['attoNumero'] 
-        
+        titolo = "Pubblicazione n. " + i['pubblicazioneNumero'] + " del " + i['dataInizioPubbl'] + " - " + i['attoNumero']      
         #Parsing di dataInizioPubbl
-        formatted_dataInizioPubbl = parser.parse(i['dataInizioPubbl']).strftime("%a, %d %b %Y %H:%M:%S +0000")
-        
+        formatted_dataInizioPubbl = convert_to_rfc822_from_ddmmyyyy(i['dataInizioPubbl'])     
         #Parsing di dataFinePubbl
-        formatted_dataFinePubbl = parser.parse(i['dataFinePubbl']).strftime("%a, %d %b %Y %H:%M:%S +0000")
-        
+        formatted_dataFinePubbl = convert_to_rfc822_from_ddmmyyyy(i['dataFinePubbl'])
         # Parsing di tsPubblicazione
-        utc_date = datetime.strptime(i['tsPubblicazione'], "%b %d, %Y %I:%M:%S %p").replace(tzinfo=pytz.utc)
-        formatted_tsPubblicazione = utc_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
-        
+        formatted_tsPubblicazione = convert_to_rfc822(i['tsPubblicazione'])
         # Parsing di dataAtto
-        utc_date = datetime.strptime(i['dataAtto'], "%b %d, %Y %I:%M:%S %p").replace(tzinfo=pytz.utc)
-        formatted_dataAtto = utc_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
-        
+        formatted_dataAtto = convert_to_rfc822(i['dataAtto'])
         # Parsing di dataAdozione
-        utc_date = datetime.strptime(i['dataAdozione'], "%b %d, %Y %I:%M:%S %p").replace(tzinfo=pytz.utc)
-        formatted_dataAdozione = utc_date.strftime("%a, %d %b %Y %H:%M:%S +0000")
+        formatted_dataAdozione = convert_to_rfc822(i['dataAdozione'])
 
         clean_oggetto = html.escape(i['oggetto'])
-
         rss += """\
         <item>
             <title>{}</title>
