@@ -42,9 +42,12 @@ async def process_feed(bot, channel_id):
         
         # Fetch and parse RSS feed
         feed = feedparser.parse(RSS_URL)
-        if feed.bozo:
-            logger.warning("Feed parsing error detected")
-            return False
+        
+        # The Universal Feed Parser can parse feeds whether they are well-formed XML or not. 
+        # Since some time the application warn users about non-well-formed feeds we commented the check
+        # if feed.bozo:
+        #    logger.warning("Feed parsing error detected")
+        #    return False
 
         entries = feed.entries
         if not entries:
