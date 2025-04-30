@@ -1,4 +1,4 @@
-# Strumento per la ricerca degli atti dell'Albo Pretorio del Comune di Genova e per la pubblicazione degli atti su un canale Telegram
+# Ricerca degli atti dell'Albo Pretorio del Comune di Genova e pubblicazione su un canale Telegram dedicato
 
 Seleziona gli atti in pubblicazione dell'Albo Pretorio del Comune di Genova in base a determinate parole e/o sequenze di parole chiave (formato di output: html o csv).
 
