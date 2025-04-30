@@ -47,24 +47,35 @@ Clonando questo repository, verranno anche create le sottocartelle necessarie (t
 
 Da linea di comando digitare:
 ```
-•  py download_and_search.py formato_file_output parola_chiave_1 parola_chiave_2 ... parola_chiave_N (formato_file_output = csv,html - per cercare una sequenza esatta di parole aggiungere la sequenza tra parentesi "...")
+py download_and_search.py formato_file_output parola_chiave_1 parola_chiave_2 ... parola_chiave_N
 ```
+(formato_file_output = csv,html - per cercare una sequenza esatta di parole aggiungere la sequenza tra parentesi "...")
+
 Esempi:
 ```
-•  py download_and_search.py csv cantiere marassi
+py download_and_search.py csv cantiere marassi
 ```
 (ritorna gli atti in pubblicazione che contengono le parole "cantiere" e "marassi" in formato "csv")
 ```    
-•  py download_and_search.py html "stazione principe" lavori
+py download_and_search.py html "stazione principe" lavori
 ```
 (ritorna gli atti in pubblicazione che contengono le parole "stazione principe" e "lavori" in formato "html")
     
-•  py download_and_search.py (ritorna gli atti in pubblicazione in formato "html" - il formato di default)
-    
-•  py download_and_search.py html (ritorna gli atti in pubblicazione in formato "html")
-    
-•  py download_and_search.py csv (ritorna gli atti in pubblicazione in formato "csv")
 ```
+py download_and_search.py
+```
+(ritorna gli atti in pubblicazione in formato "html" - il formato di default)
+     
+```
+py download_and_search.py html
+```
+(ritorna gli atti in pubblicazione in formato "html")
+    
+```
+py download_and_search.py csv 
+```
+(ritorna gli atti in pubblicazione in formato "csv")
+
 Se le ricerche sono ricorrenti e prevedono la selezione di atti che hanno sempre le stesse parole e/o sequenze di parole chiave, queste ultime possono essere memorizzate nel file download_and_search.py impostando la variabile RECURRENT_SEARCH_TERMS. Ciò evita di dover digitare le parole e/o sequenze di parole chiave da ricercare sulla linea di comando.
 
 Un secondo script (upd_channel_async.py) si occupa di:
