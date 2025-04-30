@@ -18,3 +18,10 @@ WORKDIR /data
 # Install dependencies
 RUN pip install setuptools pip wheel --upgrade
 RUN pip install -r requirements.txt
+
+# kubectl
+RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+RUN chmod +x kubectl
+RUN mv kubectl /usr/local/bin/
+
+COPY krsync.sh /usr/local/bin/
