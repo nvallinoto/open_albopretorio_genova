@@ -51,9 +51,13 @@ Da linea di comando digitare:
 ```
 Esempi:
 ```
-•  py download_and_search.py csv cantiere marassi (ritorna gli atti in pubblicazione che contengono le parole "cantiere" e "marassi" in formato "csv")
-    
-•  py download_and_search.py html "stazione principe" lavori (ritorna gli atti in pubblicazione che contengono le parole "stazione principe" e "lavori" in formato "html")
+•  py download_and_search.py csv cantiere marassi
+```
+(ritorna gli atti in pubblicazione che contengono le parole "cantiere" e "marassi" in formato "csv")
+```    
+•  py download_and_search.py html "stazione principe" lavori
+```
+(ritorna gli atti in pubblicazione che contengono le parole "stazione principe" e "lavori" in formato "html")
     
 •  py download_and_search.py (ritorna gli atti in pubblicazione in formato "html" - il formato di default)
     
@@ -63,6 +67,8 @@ Esempi:
 ```
 Se le ricerche sono ricorrenti e prevedono la selezione di atti che hanno sempre le stesse parole e/o sequenze di parole chiave, queste ultime possono essere memorizzate nel file download_and_search.py impostando la variabile RECURRENT_SEARCH_TERMS. Ciò evita di dover digitare le parole e/o sequenze di parole chiave da ricercare sulla linea di comando.
 
-Un secondo script (upd_channel_async.py) si occupa di: 
+Un secondo script (upd_channel_async.py) si occupa di:
+
 •  leggere il feed rss (prodotto dal primo script) con gli atti dell'albo pretorio del Comune di Genova in pubblicazione e
+
 •  pubblicare gli atti sul canale Telegram non ufficiale degli atti dell'albo pretorio del Comune di Genova (https://t.me/AlboPOPComuneGenova)
