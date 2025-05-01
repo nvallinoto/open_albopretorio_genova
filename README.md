@@ -76,7 +76,7 @@ py download_and_search.py csv
 ```
 (ritorna gli atti in pubblicazione in formato "csv")
 
-Se le ricerche sono ricorrenti e prevedono la selezione di atti che hanno sempre le stesse parole e/o sequenze di parole chiave, queste ultime possono essere memorizzate nel file download_and_search.py impostando la variabile RECURRENT_SEARCH_TERMS. Ciò evita di dover digitare le parole e/o sequenze di parole chiave da ricercare sulla linea di comando.
+Se le ricerche sono ricorrenti e prevedono la selezione di atti che hanno sempre le stesse parole e/o sequenze di parole chiave, queste ultime possono essere memorizzate nel file download_and_search.py impostando la variabile RECURRENT_SEARCH_TERMS (nel file .env). Ciò evita di dover digitare le parole e/o sequenze di parole chiave da ricercare sulla linea di comando.
 
 Un secondo script (upd_alboge_channel_async.py) si occupa di:
 
