@@ -10,11 +10,9 @@ import sys
 import time
 import html
 from dateutil import parser
+from dotenv import load_dotenv
 # config
-ALBO_URL = "https://alboonline.comune.genova.it/albopretorio/dispatcher/alboPretorioServlet/invoke"
-TEMP_DIR = "temp"
-PUB_DIR = "pub"
-RECURRENT_SEARCH_TERMS = []
+
 # RECURRENT_SEARCH_TERMS = [
 # 'stazione marittima', 'funivia', 'forte begato', 'espropri', 'lagaccio', 'gavoglio', 'principe', 'Doppelmayr', 'Collini', 
 # 'B31B21006780001', '9219018E4F', 'MOGE 20792', 'OBR', 'A002D44B88', 'collegamento funiviario', 'interferenze', 'PNC'
@@ -124,6 +122,12 @@ def make_clickable(val):
     return '<a target="_blank" href="{}">ATTO</a>'.format(val)
 
 if __name__ == '__main__':
+    # Load environment variables
+    load_dotenv()
+    ALBO_URL = os.getenv("ALBO_PRETORIO_API")
+    TEMP_DIR = "temp"
+    PUB_DIR = "pub"
+    RECURRENT_SEARCH_TERMS = os.getenv("RECURRENT_SEARCH_TERMS")
     if not os.path.exists(PUB_DIR):
         os.mkdir(PUB_DIR)
     if not os.path.exists(TEMP_DIR):
