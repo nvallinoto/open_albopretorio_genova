@@ -11,6 +11,7 @@ import time
 import html
 from dateutil import parser
 from dotenv import load_dotenv
+import ast
 
 # argv[1] = filetype (csv or html)
 # argv[2:] = parole chiave
@@ -123,6 +124,9 @@ if __name__ == '__main__':
     TEMP_DIR = "temp"
     PUB_DIR = "pub"
     RECURRENT_SEARCH_TERMS = os.getenv("RECURRENT_SEARCH_TERMS")
+    # Convert string to list
+    RECURRENT_SEARCH_TERMS = ast.literal_eval(RECURRENT_SEARCH_TERMS)    
+    
     if not os.path.exists(PUB_DIR):
         os.mkdir(PUB_DIR)
     if not os.path.exists(TEMP_DIR):
