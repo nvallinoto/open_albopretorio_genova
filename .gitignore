@@ -6,6 +6,3 @@
 
 # script folders
 pub/
-
-# configuration file
-.env
