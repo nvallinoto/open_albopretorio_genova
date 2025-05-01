@@ -2,7 +2,7 @@
 FROM python:3.10-slim
 
 RUN apt-get update
-RUN apt install -y rsync
+RUN apt install -y rsync curl
 
 # create dirs
 RUN mkdir -p /data/pub
@@ -25,3 +25,5 @@ RUN chmod +x kubectl
 RUN mv kubectl /usr/local/bin/
 
 COPY krsync.sh /usr/local/bin/
+RUN chmod +x /usr/local/bin/krsync.sh
+
