@@ -7,13 +7,11 @@ import logging
 from datetime import datetime
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
-
 # Configuration
-RSS_URL = os.getenv("RSS_URL")
+PUB_DIR = "pub"
+RSS_FILE = "{}/albogenova_rss.xml".format(PUB_DIR)
 MESSAGE_DELAY = 3  # seconds
-LAST_ENTRY_FILE = "last_entry.txt"
+LAST_ENTRY_FILE = "{}/last_entry.txt".format(PUB_DIR)
 
 # Set up logging
 logging.basicConfig(
@@ -40,15 +38,21 @@ async def process_feed(bot, channel_id):
     try:
         logger.info(f"Starting daily feed processing at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
         
-        # Fetch and parse RSS feed
-        feed = feedparser.parse(RSS_URL)
-        
-        # The Universal Feed Parser can parse feeds whether they are well-formed XML or not. 
-        # Since some time the application warn users about non-well-formed feeds we commented the check
-        # if feed.bozo:
-        #    logger.warning("Feed parsing error detected")
-        #    return False
+        # Check if RSS file exists
+        if not os.path.exists(RSS_FILE):
+            logger.error(f"RSS file not found: {RSS_FILE}")
+            return False        
 
+        # Fetch and parse RSS feed
+        with open(RSS_FILE, 'r') as f:
+            feed_content = f.read()
+            feed = feedparser.parse(feed_content)
+            # The Universal Feed Parser can parse feeds whether they are well-formed XML or not. 
+            # Since some time the application warn users about non-well-formed feeds we commented the check
+            # if feed.bozo:
+            #    logger.warning("Feed parsing error detected")
+            #    return False
+        
         entries = feed.entries
         if not entries:
             logger.info("No entries found in RSS feed")
@@ -99,6 +103,8 @@ async def process_feed(bot, channel_id):
         return False
 
 async def main():
+    # Load environment variables
+    load_dotenv()
     # Get environment variables
     BOT_TOKEN = os.getenv("BOT_TOKEN")
     CHANNEL_ID = os.getenv("CHANNEL_ID")
