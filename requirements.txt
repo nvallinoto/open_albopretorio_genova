@@ -5,3 +5,4 @@ telegram
 feedparser
 python-telegram-bot
 dotenv
+beautifulsoup4>=4.12.0
