@@ -83,3 +83,10 @@ Un secondo script (upd_alboge_channel_async.py) si occupa di:
 •  leggere il feed rss (prodotto dal primo script) con gli atti dell'albo pretorio del Comune di Genova in pubblicazione e
 
 •  pubblicare gli atti sul canale Telegram non ufficiale degli atti dell'albo pretorio del Comune di Genova (https://t.me/AlboPOPComuneGenova)
+
+Un terzo script (upd_cippt_channel.py) si occupa di:
+
+•  leggere i file html (prodotti giornalmente dal primo script) con gli atti dell'albo pretorio del Comune di Genova in pubblicazione riguardanti la funivia e
+
+•  pubblicare gli atti - di cui sopra - su un canale Telegram dedicato al comitato Con i piedi per terra (https://t.me/AlboPOPConIPiediPerTerra)
+
