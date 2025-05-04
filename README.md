@@ -2,7 +2,7 @@
 
 Seleziona gli atti in pubblicazione dell'Albo Pretorio del Comune di Genova in base a determinate parole e/o sequenze di parole chiave (formato di output: html o csv).
 
-Pubblica gli atti sul canale Telegram non ufficiale https://t.me/AlboPOPComuneGenova
+Pubblica gli atti dell'albo pretorio sul canale Telegram non ufficiale https://t.me/AlboPOPComuneGenova
 
 Il sito dell'albo pretorio del Comune di Genova (https://alboonline.comune.genova.it/albopretorio/) attualmente non consente: 
 
@@ -14,13 +14,15 @@ Come affermano i promotori del progetto AlboPOP.it realizzato dall'associazione 
 
 E aggiungono: "Gli Albi pretori online attualmente non forniscono quasi mai strumenti che consentano ai cittadini di essere avvisati in modo automatico per ogni nuova pubblicazione. Inoltre non esiste un formato Standard per le Pubbliche Amministrazioni."
 
-Questo programma nasce da una richiesta specifica di aiuto proveniente dal comitato genovese Con i piedi per terra che ha la necessità di monitorare giornalmente gli atti pubblicati dall'Albo pretorio.
+Questo programma nasce da una richiesta specifica di aiuto proveniente dal comitato genovese Con i piedi per terra che ha la necessità di monitorare giornalmente gli atti pubblicati dall'Albo pretorio. 
 
 Siccome la stessa esigenza può accomunare altri comitati locali, ma anche singoli cittadini, abbiamo voluto generalizzare il programma di ricerca degli atti in pubblicazione mettendo a disposizione di tutti gli interessati il relativo codice con una licenza di software libero. 
 
 Il programma vuole essere uno strumento di ricerca per aiutare quei cittadini (o gruppi di cittadini) che hanno necessità di trovare periodicamente atti su un determinato argomento in modo semplificato.
 
 Inoltre vorrebbe essere uno sprone per l'amministrazione locale affinchè agevoli la ricerca degli atti e li metta a disposizione in un formato aperto con una licenza di open data. 
+
+Il programma è stato realizzato con la collaborazione di onData e PeaceLink. 
 
 Il programma (scritto in python) esegue le seguenti operazioni:
 
@@ -86,7 +88,7 @@ Un secondo script (upd_alboge_channel_async.py) si occupa di:
 
 Un terzo script (upd_cippt_channel.py) si occupa di:
 
-•  leggere i file html (prodotti giornalmente dal primo script) con gli atti dell'albo pretorio del Comune di Genova in pubblicazione riguardanti la funivia e
+•  leggere i file html (prodotti giornalmente dal primo script) con gli atti dell'albo pretorio del Comune di Genova in pubblicazione che corrispondono alle parole chiave scelte e
 
 •  pubblicare gli atti - di cui sopra - su un canale Telegram dedicato al comitato Con i piedi per terra (https://t.me/AlboPOPConIPiediPerTerra)
 
