@@ -77,8 +77,9 @@ def generate_rss(data):
         formatted_tsPubblicazione = convert_to_rfc822(i['tsPubblicazione'])
         # Parsing di dataAtto
         formatted_dataAtto = convert_to_rfc822(i['dataAtto'])
-        # Parsing di dataAdozione
-        formatted_dataAdozione = convert_to_rfc822(i['dataAdozione'])
+        # Parsing di dataAdozione - la data di adozione non viene più restituita dall'api (dal 7 maggio 2025 -> keyerror)
+        # formatted_dataAdozione = convert_to_rfc822(i['dataAdozione'])
+        formatted_dataAdozione = ""
         clean_oggetto = html.escape(i['oggetto'])
         rss += """\
         <item>
