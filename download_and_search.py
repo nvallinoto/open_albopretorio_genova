@@ -118,8 +118,9 @@ def make_clickable(val):
     return '<a target="_blank" href="{}">ATTO</a>'.format(val)
 
 if __name__ == '__main__':
-    # Load environment variables
-    load_dotenv()
+    # Load environment variables if not already present
+    if os.getenv("ALBO_PRETORIO_API"):
+        load_dotenv()
     ALBO_URL = os.getenv("ALBO_PRETORIO_API")
     TEMP_DIR = "temp"
     PUB_DIR = "pub"
