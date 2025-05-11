@@ -119,7 +119,7 @@ def make_clickable(val):
 
 if __name__ == '__main__':
     # Load environment variables if not already present
-    if os.getenv("ALBO_PRETORIO_API"):
+    if not os.getenv("ALBO_PRETORIO_API"):
         load_dotenv()
     ALBO_URL = os.getenv("ALBO_PRETORIO_API")
     TEMP_DIR = "temp"
