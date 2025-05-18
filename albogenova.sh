@@ -9,6 +9,8 @@ source .venv/bin/activate
 
 # run
 python download_and_search.py
+python upd_alboge_channel_async.py
+python upd_cippt_channel.py
 
 # end
 deactivate
