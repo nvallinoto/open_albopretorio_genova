@@ -83,7 +83,7 @@ def format_message(entry):
     description = entry['oggetto']
     url = entry['url']
     
-    return f"<b>{title}</b>\n\n{description}\n\n<a href='{url}'>Leggi di più</a>"
+    return f"<b>{title}</b>\n\n{description}\n\n<a href='{url}'>{url}</a>"
 
 async def process_new_files(bot, channel_id):
     try:
