@@ -32,7 +32,7 @@ def save_last_entry_id(entry_id):
         f.write(entry_id)
 
 def format_message(entry):
-    return f"<b>{entry.title}</b>\n\n{entry.description}\n\n<a href='{entry.link}'>Leggi di più</a>"
+    return f"<b>{entry.title}</b>\n\n{entry.description}\n\n<a href='{entry.link}'>{entry.link}</a>"
 
 async def process_feed(bot, channel_id):
     try:
