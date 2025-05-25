@@ -24,8 +24,10 @@ logger = logging.getLogger(__name__)
 def get_last_publication_date():
     try:
         with open(LAST_ENTRY_FILE, "r") as f:
-            date_str = f.read().strip()
-            return datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
+            content = f.read().strip()
+            if not content:
+                return None
+            return int(content)
     except FileNotFoundError:
         logger.error(f"File not found: {LAST_ENTRY_FILE}")
         return None
@@ -33,13 +35,13 @@ def get_last_publication_date():
         logger.error(f"Error reading last publication date: {e}")
         return None
 
-def save_last_publication_date(pub_date):
+def save_last_publication_date(timestamp):
     try:
         with open(LAST_ENTRY_FILE, "w") as f:
-            f.write(pub_date.strftime("%Y-%m-%d %H:%M:%S"))
+            f.write(str(timestamp))
     except Exception as e:
         logger.error(f"Error saving last publication date: {e}")
-
+        
 def format_message(entry):
     return f"<b>{entry.title}</b>\n\n{entry.description}\n\n<a href='{entry.link}'>{entry.link}</a>"
 
@@ -62,25 +64,34 @@ async def process_feed(bot, channel_id):
             logger.info("No entries found in RSS feed")
             return True
 
-        last_pub_date = get_last_publication_date()
-        new_entries = []
+        last_pub_timestamp = get_last_publication_date()
+        new_entries_with_ts = []
 
         # Collect new entries
         for entry in entries:
-            if 'published_parsed' not in entry:
-                logger.warning("Entry missing 'published_parsed', skipping")
+             pub_date_str = entry.get('published')
+            if not pub_date_str:
+                logger.warning("Entry missing 'published', skipping")
                 continue
-            pub_struct = entry.published_parsed
-            entry_pub_date = datetime.utcfromtimestamp(calendar.timegm(pub_struct))
-            
-            if last_pub_date is None:
+            try:
+                pub_date = datetime.strptime(pub_date_str, "%a, %d %b %Y %H:%M:%S %z")
+                entry_timestamp = int(pub_date.timestamp())
+            except Exception as e:
+                logger.error(f"Error parsing date '{pub_date_str}': {e}")
+                continue
+
+            if last_pub_timestamp is None:
                 break
-                
-            if entry_pub_date <= last_pub_date:
+                # new_entries_with_ts.append((entry, entry_timestamp))
+                # continue
+
+            if entry_timestamp > last_pub_timestamp:
+                new_entries_with_ts.append((entry, entry_timestamp))
+            else:
                 break
 
-            new_entries.append(entry)
-
+        new_entries = [entry for entry, _ in new_entries_with_ts]
+        
         # Process new entries in chronological order
         if new_entries:
             logger.info(f"Found {len(new_entries)} new entries")
@@ -101,13 +112,14 @@ async def process_feed(bot, channel_id):
                     await asyncio.sleep(10)  # Wait longer on Telegram errors
 
             # Update last publication date to the most recent entry
-            latest_entry = entries[0]
-            latest_pub_struct = latest_entry.published_parsed
-            latest_pub_date = datetime.utcfromtimestamp(calendar.timegm(latest_pub_struct))
-            save_last_publication_date(latest_pub_date)
+            if new_entries_with_ts:
+                max_timestamp = max(ts for _, ts in new_entries_with_ts)
+                save_last_publication_date(max_timestamp)
+            else:
+                logger.error("No timestamps available to save")
         else:
             logger.info("No new entries found")
-
+            
         return True
 
     except Exception as e:
