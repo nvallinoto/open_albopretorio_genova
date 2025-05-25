@@ -75,9 +75,7 @@ async def process_feed(bot, channel_id):
             
             if last_pub_date is None:
                 break
-#                new_entries.append(entry)
-#                continue
-
+                
             if entry_pub_date <= last_pub_date:
                 break
 
