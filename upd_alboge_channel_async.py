@@ -26,6 +26,7 @@ def get_last_publication_date():
             date_str = f.read().strip()
             return datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
     except FileNotFoundError:
+        logger.error(f"File not found: {LAST_ENTRY_FILE}")
         return None
     except Exception as e:
         logger.error(f"Error reading last publication date: {e}")
@@ -76,8 +77,7 @@ async def process_feed(bot, channel_id):
             pub_struct = entry.published_parsed
             entry_pub_date = datetime.utcfromtimestamp(calendar.timegm(pub_struct))
             if last_pub_date is None:
-                new_entries.append(entry)
-                continue
+                break
             if entry_pub_date <= last_pub_date:
                 break
                 
