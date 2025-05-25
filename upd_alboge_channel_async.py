@@ -6,6 +6,7 @@ from telegram.error import TelegramError
 import logging
 from datetime import datetime
 from dotenv import load_dotenv
+import calendar
 
 # Configuration
 PUB_DIR = "pub"
@@ -55,17 +56,12 @@ async def process_feed(bot, channel_id):
         with open(RSS_FILE, 'r') as f:
             feed_content = f.read()
             feed = feedparser.parse(feed_content)
-            # The Universal Feed Parser can parse feeds whether they are well-formed XML or not. 
-            # Since some time the application warn users about non-well-formed feeds we commented the check
-            # if feed.bozo:
-            #    logger.warning("Feed parsing error detected")
-            #    return False
         
         entries = feed.entries
         if not entries:
             logger.info("No entries found in RSS feed")
             return True
-        
+
         last_pub_date = get_last_publication_date()
         new_entries = []
 
@@ -76,11 +72,15 @@ async def process_feed(bot, channel_id):
                 continue
             pub_struct = entry.published_parsed
             entry_pub_date = datetime.utcfromtimestamp(calendar.timegm(pub_struct))
+            
             if last_pub_date is None:
                 break
+#                new_entries.append(entry)
+#                continue
+
             if entry_pub_date <= last_pub_date:
                 break
-                
+
             new_entries.append(entry)
 
         # Process new entries in chronological order
@@ -102,7 +102,7 @@ async def process_feed(bot, channel_id):
                     logger.error(f"Failed to send message: {e}")
                     await asyncio.sleep(10)  # Wait longer on Telegram errors
 
-           # Update last publication date to the most recent entry
+            # Update last publication date to the most recent entry
             latest_entry = entries[0]
             latest_pub_struct = latest_entry.published_parsed
             latest_pub_date = datetime.utcfromtimestamp(calendar.timegm(latest_pub_struct))
@@ -137,4 +137,4 @@ async def main():
         logger.warning("Daily processing completed with errors")
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    asyncio.run(main()) 
