@@ -20,16 +20,23 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-def get_last_entry_id():
+def get_last_publication_date():
     try:
         with open(LAST_ENTRY_FILE, "r") as f:
-            return f.read().strip()
+            date_str = f.read().strip()
+            return datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
     except FileNotFoundError:
         return None
+    except Exception as e:
+        logger.error(f"Error reading last publication date: {e}")
+        return None
 
-def save_last_entry_id(entry_id):
-    with open(LAST_ENTRY_FILE, "w") as f:
-        f.write(entry_id)
+def save_last_publication_date(pub_date):
+    try:
+        with open(LAST_ENTRY_FILE, "w") as f:
+            f.write(pub_date.strftime("%Y-%m-%d %H:%M:%S"))
+    except Exception as e:
+        logger.error(f"Error saving last publication date: {e}")
 
 def format_message(entry):
     return f"<b>{entry.title}</b>\n\n{entry.description}\n\n<a href='{entry.link}'>{entry.link}</a>"
@@ -57,19 +64,23 @@ async def process_feed(bot, channel_id):
         if not entries:
             logger.info("No entries found in RSS feed")
             return True
-
-        last_entry_id = get_last_entry_id()
+        
+        last_pub_date = get_last_publication_date()
         new_entries = []
 
         # Collect new entries
         for entry in entries:
-            if not last_entry_id:
+            if 'published_parsed' not in entry:
+                logger.warning("Entry missing 'published_parsed', skipping")
+                continue
+            pub_struct = entry.published_parsed
+            entry_pub_date = datetime.utcfromtimestamp(calendar.timegm(pub_struct))
+            if last_pub_date is None:
                 new_entries.append(entry)
                 continue
-
-            if entry.id == last_entry_id:
+            if entry_pub_date <= last_pub_date:
                 break
-
+                
             new_entries.append(entry)
 
         # Process new entries in chronological order
@@ -91,8 +102,11 @@ async def process_feed(bot, channel_id):
                     logger.error(f"Failed to send message: {e}")
                     await asyncio.sleep(10)  # Wait longer on Telegram errors
 
-            # Update last entry ID to the most recent entry
-            save_last_entry_id(entries[0].id)
+           # Update last publication date to the most recent entry
+            latest_entry = entries[0]
+            latest_pub_struct = latest_entry.published_parsed
+            latest_pub_date = datetime.utcfromtimestamp(calendar.timegm(latest_pub_struct))
+            save_last_publication_date(latest_pub_date)
         else:
             logger.info("No new entries found")
 
