@@ -10,6 +10,8 @@ RUN mkdir /data/temp
 
 # Copy application code into the container
 COPY download_and_search.py /data
+COPY upd_alboge_channel_async.py /data
+COPY upd_cippt_channel.py /data
 COPY requirements.txt /data
 
 # Set the working directory in the container
