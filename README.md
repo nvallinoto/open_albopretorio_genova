@@ -2,9 +2,9 @@
 
 Seleziona gli atti in pubblicazione dell'Albo Pretorio del Comune di Genova in base a determinate parole e/o sequenze di parole chiave (formato di output: html o csv).
 
-Pubblica gli atti dell'albo pretorio sul canale Telegram non ufficiale https://t.me/AlboPOPComuneGenova
+Pubblica gli atti dell'Albo Pretorio del Comune di Genova sul canale Telegram non ufficiale https://t.me/AlboPOPComuneGenova
 
-Il sito dell'albo pretorio del Comune di Genova (https://alboonline.comune.genova.it/albopretorio/) attualmente non consente: 
+Il sito dell'Albo Pretorio del Comune di Genova (https://alboonline.comune.genova.it/albopretorio/) attualmente non consente: 
 
 - lo scarico dei dati in un formato tabellare. Alcuni Comuni forniscono la possibilità di esportare i dati in un formato aperto e con una licenza di open data come per esempio il Comune di Biella (https://www.comune.biella.it/servizi-on-line/biella-open-data). 
 
@@ -22,13 +22,13 @@ Il programma vuole essere uno strumento di ricerca per aiutare quei cittadini (o
 
 Inoltre vorrebbe essere uno sprone per l'amministrazione locale affinchè agevoli la ricerca degli atti e li metta a disposizione in un formato aperto con una licenza di open data. 
 
-Il programma è stato realizzato con la collaborazione di onData e PeaceLink. 
+Il programma è stato realizzato con la collaborazione e il supporto di onData e PeaceLink. 
 
 Il programma (scritto in python) esegue le seguenti operazioni:
 
-•  Seleziona i dati (numero di pubblicazione e dell'atto, data di inizio e di fine pubblicazione, oggetto e data di adozione) degli atti in pubblicazione che contengono determinate parole e/o sequenze di parole chiave nella colonna oggetto 
+•  Seleziona i metadati (numero di pubblicazione e dell'atto, data di inizio e di fine pubblicazione, oggetto e data di adozione) degli atti in pubblicazione che contengono determinate parole e/o sequenze di parole chiave nella colonna oggetto 
     
-•  Aggiunge una colonna (urlAtto) con il link all'atto sul sito del Comune di Genova
+•  Aggiunge una colonna (urlAtto) con il link all'atto e agli allegati sul sito del Comune di Genova
     
 •  Salva i dati selezionati in formato html/csv (a scelta)
 
