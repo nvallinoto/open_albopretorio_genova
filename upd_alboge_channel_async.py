@@ -6,7 +6,6 @@ from telegram.error import TelegramError
 import logging
 from datetime import datetime
 from dotenv import load_dotenv
-import calendar
 
 # Configuration
 PUB_DIR = "pub"
