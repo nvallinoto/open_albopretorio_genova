@@ -1,6 +1,6 @@
 # Ricerca degli atti dell'Albo Pretorio del Comune di Genova e pubblicazione su un canale Telegram dedicato
 
-Seleziona gli atti in pubblicazione dell'Albo Pretorio del Comune di Genova in base a determinate parole e/o sequenze di parole chiave (formato di output: html o csv).
+Seleziona gli atti in pubblicazione dell'Albo Pretorio del Comune di Genova in base a determinate parole e/o sequenze di parole chiave (formato di output: html o csv).  
 
 Pubblica gli atti dell'Albo Pretorio del Comune di Genova sul canale Telegram non ufficiale https://t.me/AlboPOPComuneGenova
 
@@ -82,13 +82,11 @@ Se le ricerche sono ricorrenti e prevedono la selezione di atti che hanno sempre
 
 Un secondo script (upd_alboge_channel_async.py) si occupa di:
 
-•  leggere il feed rss (prodotto dal primo script) con gli atti dell'albo pretorio del Comune di Genova in pubblicazione e
-
+•  leggere il feed rss (prodotto dal primo script) con gli atti dell'albo pretorio del Comune di Genova in pubblicazione
 •  pubblicare gli atti sul canale Telegram non ufficiale degli atti dell'albo pretorio del Comune di Genova (https://t.me/AlboPOPComuneGenova)
 
 Un terzo script (upd_cippt_channel.py) si occupa di:
 
-•  leggere i file html (prodotti giornalmente dal primo script) con gli atti dell'albo pretorio del Comune di Genova in pubblicazione che corrispondono alle parole chiave scelte e2
-
+•  leggere i file html (prodotti giornalmente dal primo script) con gli atti dell'albo pretorio del Comune di Genova in pubblicazione che corrispondono alle parole chiave scelte
 •  pubblicare gli atti - di cui sopra - su un canale Telegram dedicato al comitato Con i piedi per terra (https://t.me/AlboPOPConIPiediPerTerra)
 
