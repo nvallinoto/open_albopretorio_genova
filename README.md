@@ -1,8 +1,10 @@
 # Ricerca degli atti dell'Albo Pretorio del Comune di Genova e pubblicazione su un canale Telegram dedicato
 
-Seleziona gli atti in pubblicazione dell'Albo Pretorio del Comune di Genova in base a determinate parole e/o sequenze di parole chiave (producendo un file di output in formato html o csv) e li pubblica in un canale Telegram dedicato.  
+Cosa fa il programma ?
 
-Pubblica gli atti dell'Albo Pretorio del Comune di Genova in corso di pubblicazione sul canale Telegram non ufficiale https://t.me/AlboPOPComuneGenova
+1) Seleziona gli atti in pubblicazione dell'Albo Pretorio del Comune di Genova in base a determinate parole e/o sequenze di parole chiave (con la produzione di un file di output in formato html o csv) e li pubblica in un canale Telegram dedicato.  
+
+2) Pubblica gli atti dell'Albo Pretorio del Comune di Genova in corso di pubblicazione sul canale Telegram non ufficiale https://t.me/AlboPOPComuneGenova
 
 Come affermano i promotori del progetto AlboPOP.it realizzato dall'associazione onData: "Gli Albi Pretori sono una fonte preziosissima di informazioni, che le PA devono pubblicare in una sezione specifica dei loro siti internet. All'interno, ad esempio, si trovano: avvisi pubblici, bandi di concorso, determine dirigenziali, avvisi ed esiti di gare, notifiche, ordinanze del sindaco, pubblicazioni di matrimonio, ecc. Si tratta di elementi molto utili a chi vuole vivere il proprio territorio in modo consapevole e attivo."
 
