@@ -1,18 +1,18 @@
 # Ricerca degli atti dell'Albo Pretorio del Comune di Genova e pubblicazione su un canale Telegram dedicato
 
-Seleziona gli atti in pubblicazione dell'Albo Pretorio del Comune di Genova in base a determinate parole e/o sequenze di parole chiave (formato di output: html o csv).  
+Seleziona gli atti in pubblicazione dell'Albo Pretorio del Comune di Genova in base a determinate parole e/o sequenze di parole chiave (producendo un file di output in formato html o csv) e li pubblica in un canale Telegram dedicato.  
 
-Pubblica gli atti dell'Albo Pretorio del Comune di Genova sul canale Telegram non ufficiale https://t.me/AlboPOPComuneGenova
+Pubblica gli atti dell'Albo Pretorio del Comune di Genova in corso di pubblicazione sul canale Telegram non ufficiale https://t.me/AlboPOPComuneGenova
+
+Come affermano i promotori del progetto AlboPOP.it realizzato dall'associazione onData: "Gli Albi Pretori sono una fonte preziosissima di informazioni, che le PA devono pubblicare in una sezione specifica dei loro siti internet. All'interno, ad esempio, si trovano: avvisi pubblici, bandi di concorso, determine dirigenziali, avvisi ed esiti di gare, notifiche, ordinanze del sindaco, pubblicazioni di matrimonio, ecc. Si tratta di elementi molto utili a chi vuole vivere il proprio territorio in modo consapevole e attivo."
+
+E aggiungono: "Gli Albi pretori online attualmente non forniscono quasi mai strumenti che consentano ai cittadini di essere avvisati in modo automatico per ogni nuova pubblicazione. Inoltre non esiste un formato Standard per le Pubbliche Amministrazioni."
 
 Il sito dell'Albo Pretorio del Comune di Genova (https://alboonline.comune.genova.it/albopretorio/) attualmente non consente: 
 
 - lo scarico dei dati in un formato tabellare. Alcuni Comuni forniscono la possibilità di esportare i dati in un formato aperto e con una licenza di open data come per esempio il Comune di Biella (https://www.comune.biella.it/servizi-on-line/biella-open-data). 
 
-- la ricerca per parole e/o sequenze di parole chiave alternative. La ricerca con l’operatore logico OR consente infatti di estrarre più dati rispetto alle ricerche con l’operatore logico AND. 
-
-Come affermano i promotori del progetto AlboPOP.it realizzato dall'associazione onData: "Gli Albi Pretori sono una fonte preziosissima di informazioni, che le PA devono pubblicare in una sezione specifica dei loro siti internet. All'interno, ad esempio, si trovano: avvisi pubblici, bandi di concorso, determine dirigenziali, avvisi ed esiti di gare, notifiche, ordinanze del sindaco, pubblicazioni di matrimonio, ecc. Si tratta di elementi molto utili a chi vuole vivere il proprio territorio in modo consapevole e attivo."
-
-E aggiungono: "Gli Albi pretori online attualmente non forniscono quasi mai strumenti che consentano ai cittadini di essere avvisati in modo automatico per ogni nuova pubblicazione. Inoltre non esiste un formato Standard per le Pubbliche Amministrazioni."
+- la ricerca per parole e/o sequenze di parole chiave alternative (la ricerca con l’operatore logico OR consente infatti di estrarre più dati con una sola interrogazione rispetto alle ricerche con l’operatore logico AND). 
 
 Questo programma nasce da una richiesta specifica di aiuto proveniente dal comitato genovese Con i piedi per terra che ha la necessità di monitorare giornalmente gli atti pubblicati dall'Albo pretorio. 
 
