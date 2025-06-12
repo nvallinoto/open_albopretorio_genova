@@ -22,7 +22,7 @@ Siccome la stessa esigenza può accomunare altri comitati locali, ma anche singo
 
 Il programma vuole essere uno strumento di ricerca per aiutare quei cittadini (o gruppi di cittadini) che hanno necessità di trovare periodicamente atti su un determinato argomento in modo semplificato.
 
-Inoltre vorrebbe essere uno sprone per l'amministrazione locale affinchè agevoli la ricerca degli atti e li metta a disposizione in un formato aperto con una licenza di open data. 
+Questa iniziativa vorrebbe essere uno sprone per l'amministrazione locale affinchè agevoli la ricerca degli atti e li metta a disposizione in un formato aperto con una licenza di open data. L'amministrazione locale potrebbe anche aderire ufficialmente all'iniziativa AlboPOP come hanno fatto altri Comuni (https://albopop.it/ufficiale/).
 
 Il programma è stato realizzato con la collaborazione e il supporto di onData e PeaceLink. 
 
