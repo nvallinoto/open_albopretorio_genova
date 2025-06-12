@@ -34,7 +34,9 @@ Il programma (scritto in python) esegue le seguenti operazioni:
     
 •  Salva i dati selezionati in formato html/csv (a scelta)
 
-•  Salva tutti gli atti in pubblicazione in un feed rss (in formato xml).
+•  Salva tutti gli atti in pubblicazione in un feed rss (in formato xml). 
+
+Il repository è ospitato sul server di PeaceLink: https://ospiti.peacelink.it/albogenova/
 
 Per eseguire lo script occorre installare Python e alcune librerie. Meglio in un ambiente virtuale.
 
